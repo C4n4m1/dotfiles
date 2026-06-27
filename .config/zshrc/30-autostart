@@ -1,0 +1,31 @@
+# -----------------------------------------------------
+# AUTOSTART
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Pywal
+# -----------------------------------------------------
+# cat ~/.cache/wal/sequences
+
+# -----------------------------------------------------
+# Fastfetch
+# -----------------------------------------------------
+# if [[ $(tty) == *"pts"* ]]; then
+#    starter=$HOME/color-scripts/color-scripts/crunchbang-mini
+#    "$starter"
+# else
+#     echo
+#     if [ -f /bin/qtile ]; then
+#         echo "Start Qtile X11 with command Qtile"
+#     fi
+#     if [ -f /bin/hyprctl ]; then
+#         echo "Start Hyprland with command Hyprland"
+#     fi
+# fi
+#
+# if [ -z "$TMUX" ]; then
+#   tmux new-session -A -s home
+# else
+#  tmux display-popup -E "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t" 
+# fi
+

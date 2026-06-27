@@ -1,0 +1,22 @@
+* {
+	font-family: "Inter Medium";
+
+}
+
+.GtkListBox,
+.GtkCenterBox,
+.navigation-sidebar {
+	background-color: rgba(40, 40, 40, 0.8);
+}
+
+@define-color view_bg_color #000000CC;
+@define-color window_bg_color #000000CC;
+
+
+@define-color dialog_bg_color #000000CC;
+@define-color headerbar_bg_color #000000CC;
+@define-color menu_bg_color #000000CC;
+@define-color tooltip_bg_color #000000CC;
+@define-color entry_bg_color #000000CC;
+@define-color insensitive_bg_color #00000066;
+/* for disabled widgets */
