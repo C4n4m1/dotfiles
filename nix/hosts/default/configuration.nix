@@ -3,7 +3,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, unstable-pkgs, ... }:
 
 {
   imports =
@@ -99,6 +99,7 @@
       bat
       dysk
       gowall
+      ntfs3g
       stow
 
       (inputs.quickshell.packages.${pkgs.system}.default.withModules [
@@ -111,7 +112,7 @@
       rustc
       zig
       zed-editor
-      nodejs
+      unstable-pkgs.nodejs
       gcc
       clang
       mariadb
@@ -120,7 +121,7 @@
       php
       opencode
       jq
-      # herdr
+      unstable-pkgs.herdr
 
       # GAMING
       gamescope
@@ -128,7 +129,7 @@
 
       # APPS
       pavucontrol
-      obsidian
+      # unstable-pkgs.obsidian
       cine
       blueman
       spotify
@@ -147,6 +148,7 @@
       qt6Packages.qt6ct
       yt-dlp
       btop
+      kdePackages.dolphin
 
       # Screenshots combo
       satty
@@ -218,6 +220,10 @@
       };
     };
   };
+
+  # USB auto mount
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
 
   # Open ports in the firewall.
