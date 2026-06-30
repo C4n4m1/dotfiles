@@ -11,6 +11,10 @@
       ./hardware-configuration.nix
     ];
 
+    nixpkgs.config.permittedInsecurePackages = [
+      "pnpm-10.29.2"
+    ];
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
