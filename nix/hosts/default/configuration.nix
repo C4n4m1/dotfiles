@@ -149,6 +149,7 @@
       yt-dlp
       btop
       kdePackages.dolphin
+      masterpdfeditor
 
       # Screenshots combo
       satty

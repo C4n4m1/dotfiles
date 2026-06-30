@@ -96,7 +96,7 @@
       Appearance = {
         icon_theme = "Colloid-Dark";
         standard_dialogs = "xdgdesktopportal";
-        # style = "adwaita-dark";
+        style = "adwaita-dark";
       };
       Fonts = {
         fixed = "\"Inter ,12\"";
