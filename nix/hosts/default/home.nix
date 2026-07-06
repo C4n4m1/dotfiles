@@ -108,7 +108,7 @@
   programs.vicinae = {
     enable = true; # default: false
     systemd = {
-      enable = true; # default: false
+      enable = false; # default: false
       autoStart = true; # default: false
     };
   };

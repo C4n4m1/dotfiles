@@ -2,12 +2,12 @@
   description = "Nixos config flake";
 
   nixConfig = {
-    extra-substituters = [ "https://vicinae.cachix.org" "https://kopuz.cachix.org" ];
-    extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw=" ];
+    extra-substituters = [ "https://vicinae.cachix.org" ];
+    extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -31,8 +31,6 @@
     };
 
     vicinae.url = "github:vicinaehq/vicinae";
-
-    kopuz.url = "github:temidaradev/kopuz";
 
     # stylix = {
     #     url = "github:danth/stylix";

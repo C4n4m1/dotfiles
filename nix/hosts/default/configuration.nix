@@ -14,6 +14,8 @@
     nixpkgs.config.permittedInsecurePackages = [
       "pnpm-10.29.2"
     ];
+  hardware.cpu.amd.updateMicrocode = true;
+  hardware.enableRedistributableFirmware = true;  # if not already implied by enableAllFirmware
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -116,7 +118,7 @@
       rustc
       zig
       zed-editor
-      unstable-pkgs.nodejs
+      nodejs
       gcc
       clang
       mariadb
@@ -133,18 +135,19 @@
 
       # APPS
       pavucontrol
+      chromium
       # unstable-pkgs.obsidian
       cine
       blueman
       spotify
-      vesktop
+      # vesktop
       fastfetch
       komikku
       libreoffice
       papers
       qbittorrent
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.kopuz.packages.${pkgs.stdenv.hostPlatform.system}.default
+      unstable-pkgs.kopuz
       gnome-calculator
       gnome-clocks
       upscaler
@@ -153,7 +156,7 @@
       yt-dlp
       btop
       kdePackages.dolphin
-      masterpdfeditor
+      kdePackages.gwenview
 
       # Screenshots combo
       satty
@@ -208,6 +211,7 @@
 
   # To allow using plg from /usr/bin/  ex : for shebang 
   services.envfs.enable = true;
+
   services.upower.enable = true;
 
   services.keyd = {
@@ -235,7 +239,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
