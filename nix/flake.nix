@@ -9,6 +9,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-node.url = "github:nixos/nixpkgs/567a49d1913ce81ac6e9582e3553dd90a955875f";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -38,13 +39,20 @@
     #   };
   };
 
-  outputs = { self, nixpkgs, vicinae, home-manager , nixpkgs-unstable, ... }@inputs:
+  outputs = { self, nixpkgs, vicinae, home-manager , nixpkgs-unstable, nixpkgs-node, ... }@inputs:
   # use "nixos", or your hostname as the name of the configuration
   # it's a better practice than "default" shown in the video
   let
     system = "x86_64-linux";
+
     pkgs = nixpkgs.legacyPackages.${system};
+
     unstable-pkgs = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    node-pkgs = import nixpkgs-node {
       inherit system;
       config.allowUnfree = true;
     };
@@ -53,7 +61,7 @@
 
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs unstable-pkgs;};
+          specialArgs = {inherit inputs unstable-pkgs node-pkgs;};
           modules = [
             ./hosts/default/configuration.nix
 
