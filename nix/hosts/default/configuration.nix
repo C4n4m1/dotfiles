@@ -70,6 +70,9 @@
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
+    wireplumber.enable = true;
+    jack.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -85,7 +88,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
     environment.systemPackages = with pkgs; [
       # UTILITY / SYSTEM
-      vim 
+      vim
       wget
       ghostty
       git
@@ -100,7 +103,7 @@
       awww
       vivid
       starship
-      brightnessctl 
+      brightnessctl
       fd
       bat
       dysk
@@ -136,7 +139,7 @@
       # APPS
       pavucontrol
       chromium
-      # unstable-pkgs.obsidian
+      # obsidian
       cine
       blueman
       spotify
@@ -209,7 +212,7 @@
   # DB for key-value gnome and gtk config
   programs.dconf.enable = true;
 
-  # To allow using plg from /usr/bin/  ex : for shebang 
+  # To allow using plg from /usr/bin/  ex : for shebang
   services.envfs.enable = true;
 
   services.upower.enable = true;
@@ -266,4 +269,3 @@
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }
-

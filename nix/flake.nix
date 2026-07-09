@@ -38,17 +38,17 @@
     #   };
   };
 
-  outputs = { self, nixpkgs, vicinae, home-manager , nixpkgs-unstable, ... }@inputs: 
+  outputs = { self, nixpkgs, vicinae, home-manager , nixpkgs-unstable, ... }@inputs:
   # use "nixos", or your hostname as the name of the configuration
   # it's a better practice than "default" shown in the video
-  let 
+  let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     unstable-pkgs = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };
-  in 
+  in
     {
 
       nixosConfigurations = {
