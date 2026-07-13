@@ -8,8 +8,7 @@
   lib,
   pkgs,
   inputs,
-  unstable-pkgs,
-  node-pkgs,
+  stable-pkgs,
   ...
 }:
 
@@ -39,7 +38,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
   programs.nix-ld.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 6;
+  boot.loader.systemd-boot.configurationLimit = 2;
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -146,8 +145,8 @@
     rustup
     rustc
     zig
-    unstable-pkgs.zed-editor
-    unstable-pkgs.nodejs
+    zed-editor # unstable
+    nodejs # unstable
     # nodejs_26
     gcc
     clang
@@ -157,7 +156,7 @@
     php
     opencode
     jq
-    unstable-pkgs.herdr
+    herdr # unstable
     # LSP
     nixd
     nil
@@ -170,18 +169,18 @@
     pavucontrol
     vicinae
     # chromium
-    # obsidian
+    obsidian
     cine
     blueman
     spotify
-    # vesktop
+    vesktop
     fastfetch
     komikku
     libreoffice
     papers
     qbittorrent
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    unstable-pkgs.kopuz
+    kopuz # unstable
     gnome-calculator
     gnome-clocks
     upscaler

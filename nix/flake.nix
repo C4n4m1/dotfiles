@@ -7,8 +7,8 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-node.url = "github:nixos/nixpkgs/567a49d1913ce81ac6e9582e3553dd90a955875f";
 
     home-manager = {
@@ -45,7 +45,7 @@
       nixpkgs,
       vicinae,
       home-manager,
-      nixpkgs-unstable,
+      nixpkgs-stable,
       nixpkgs-node,
       ...
     }@inputs:
@@ -56,7 +56,7 @@
 
       pkgs = nixpkgs.legacyPackages.${system};
 
-      unstable-pkgs = import nixpkgs-unstable {
+      stable-pkgs = import nixpkgs-stable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -70,7 +70,7 @@
 
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs unstable-pkgs node-pkgs; };
+          specialArgs = { inherit inputs stable-pkgs; };
           modules = [
             ./hosts/default/configuration.nix
 
@@ -83,7 +83,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "backup";
-                extraSpecialArgs = { inherit inputs node-pkgs; };
+                # extraSpecialArgs = { inherit inputs node-pkgs; };
               };
             }
           ];
