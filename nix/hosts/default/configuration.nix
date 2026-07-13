@@ -1,8 +1,3 @@
-# Edit this configuration file to define what should be installed on
-
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
   config,
   lib,
@@ -18,31 +13,15 @@
     ./hardware-configuration.nix
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "pnpm-10.29.2"
-  ];
-
-  # Workaround: nodejs_24 segfaults on this system (breaks obsidian's build,
-  # which uses nodejs-based tools like yarn/asar). Pin the default nodejs to
-  # an older version instead. Safe to remove once upstream fixes it.
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     nodejs = prev.nodejs_22;
-  #     nodejs-slim = prev.nodejs-slim_22;
-  #   })
-  # ];
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true; # if not already implied by enableAllFirmware
 
-  # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
   programs.nix-ld.enable = true;
   boot.loader.systemd-boot.configurationLimit = 2;
 
-  networking.hostName = "nixos"; # Define your hostname.
-
-  # Configure network connections interactively with nmcli or nmtui.
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   # Bootloader
@@ -56,9 +35,7 @@
     memoryPercent = 50;
   };
 
-  # Local / TimeZone
   time.timeZone = "Africa/Lome";
-  # i18n.defaultLocale = "fr_FR.UTF-8";
   console.keyMap = "fr";
 
   nix.settings.experimental-features = [
@@ -118,7 +95,7 @@
     ghostty
     git
     curl
-    fish
+    stable-pkgs.fish
     neovim
     nautilus
     eza
@@ -147,7 +124,6 @@
     zig
     zed-editor # unstable
     nodejs # unstable
-    # nodejs_26
     gcc
     clang
     mariadb
@@ -168,7 +144,6 @@
     # APPS
     pavucontrol
     vicinae
-    # chromium
     obsidian
     cine
     blueman
@@ -208,14 +183,7 @@
     inputs.apple-fonts.packages.${pkgs.system}.ny
   ];
 
-  # environment.variables = {
-  #   XCURSOR_THEME = "Bibata-Modern-Classic";
-  #   XCURSOR_SIZE = "24";
-  # };
-
   programs.firefox.enable = true;
-
-  # fish as default shell
   programs.fish.enable = true;
 
   # Home manager
@@ -266,6 +234,24 @@
   # USB auto mount
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+
+  systemd.services.fix-huawei-speaker-mixer = {
+    description = "Unmute ES8336 ACP speaker routing + master output gate";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "sound.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = pkgs.writeShellScript "unmute-es8336" ''
+        AMIXER="${pkgs.alsa-utils}/bin/amixer -c acp3xes83xx"
+        $AMIXER set 'Left Headphone Mixer Left DAC' unmute
+        $AMIXER set 'Right Headphone Mixer Right DAC' unmute
+        $AMIXER set 'Left Headphone Mixer LLIN' unmute
+        $AMIXER set 'Right Headphone Mixer RLIN' unmute
+        $AMIXER set 'Headphone' unmute
+      '';
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
