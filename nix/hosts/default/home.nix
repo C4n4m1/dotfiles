@@ -1,4 +1,10 @@
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  node-pkgs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -82,7 +88,7 @@
     enable = true;
     colorScheme = "dark";
     iconTheme = {
-      name = "Colloid-Dark";  
+      name = "Colloid-Dark";
       package = pkgs.colloid-icon-theme;
     };
   };
@@ -105,13 +111,16 @@
     };
   };
 
-  programs.vicinae = {
-    enable = true; # default: false
-    systemd = {
-      enable = false; # default: false
-      autoStart = true; # default: false
-    };
-  };
+  # programs.vicinae = {
+  #   enable = true; # default: false
+  #   package = inputs.vicinae.packages.${pkgs.system}.default.override {
+  #     nodejs = node-pkgs.nodejs;
+  #   };
+  #   systemd = {
+  #     enable = false; # default: false
+  #     autoStart = true; # default: false
+  #   };
+  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

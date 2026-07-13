@@ -3,19 +3,37 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, unstable-pkgs, node-pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  unstable-pkgs,
+  node-pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-    nixpkgs.config.permittedInsecurePackages = [
-      "pnpm-10.29.2"
-    ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.29.2"
+  ];
+
+  # Workaround: nodejs_24 segfaults on this system (breaks obsidian's build,
+  # which uses nodejs-based tools like yarn/asar). Pin the default nodejs to
+  # an older version instead. Safe to remove once upstream fixes it.
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     nodejs = prev.nodejs_22;
+  #     nodejs-slim = prev.nodejs-slim_22;
+  #   })
+  # ];
   hardware.cpu.amd.updateMicrocode = true;
-  hardware.enableRedistributableFirmware = true;  # if not already implied by enableAllFirmware
+  hardware.enableRedistributableFirmware = true; # if not already implied by enableAllFirmware
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -44,7 +62,10 @@
   # i18n.defaultLocale = "fr_FR.UTF-8";
   console.keyMap = "fr";
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Wayland / Niri
   programs.niri.enable = true;
@@ -82,100 +103,111 @@
   users.users.credo = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = ["wheel" "networkmanager" "video" "audio" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "audio"
+    ];
   };
 
   # You can use https://search.nixos.org/ to find more packages (and options).
-    environment.systemPackages = with pkgs; [
-      # UTILITY / SYSTEM
-      vim
-      wget
-      ghostty
-      git
-      curl
-      fish
-      neovim
-      nautilus
-      eza
-      zoxide
-      fzf
-      keyd
-      awww
-      vivid
-      starship
-      brightnessctl
-      fd
-      bat
-      dysk
-      gowall
-      ntfs3g
-      stow
+  environment.systemPackages = with pkgs; [
+    # UTILITY / SYSTEM
+    vim
+    wget
+    ghostty
+    git
+    curl
+    fish
+    neovim
+    nautilus
+    eza
+    zoxide
+    fzf
+    keyd
+    awww
+    vivid
+    starship
+    brightnessctl
+    fd
+    bat
+    dysk
+    gowall
+    ntfs3g
+    stow
 
-      (inputs.quickshell.packages.${pkgs.system}.default.withModules [
-        pkgs.qt6.qt5compat
-        pkgs.qt6.qtwayland
-      ])
+    (inputs.quickshell.packages.${pkgs.system}.default.withModules [
+      pkgs.qt6.qt5compat
+      pkgs.qt6.qtwayland
+    ])
 
-      # PROGRAMING
-      rustup
-      rustc
-      zig
-      zed-editor
-      node-pkgs.nodejs
-      gcc
-      clang
-      mariadb
-      sqlite
-      sqlitebrowser
-      php
-      opencode
-      jq
-      unstable-pkgs.herdr
+    # PROGRAMING
+    rustup
+    rustc
+    zig
+    unstable-pkgs.zed-editor
+    unstable-pkgs.nodejs
+    # nodejs_26
+    gcc
+    clang
+    mariadb
+    sqlite
+    sqlitebrowser
+    php
+    opencode
+    jq
+    unstable-pkgs.herdr
+    # LSP
+    nixd
+    nil
 
-      # GAMING
-      gamescope
-      wine
+    # GAMING
+    gamescope
+    wine
 
-      # APPS
-      pavucontrol
-      chromium
-      # obsidian
-      cine
-      blueman
-      spotify
-      # vesktop
-      fastfetch
-      komikku
-      libreoffice
-      papers
-      qbittorrent
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-      unstable-pkgs.kopuz
-      gnome-calculator
-      gnome-clocks
-      upscaler
-      networkmanagerapplet
-      qt6Packages.qt6ct
-      yt-dlp
-      btop
-      kdePackages.dolphin
-      kdePackages.gwenview
+    # APPS
+    pavucontrol
+    vicinae
+    # chromium
+    # obsidian
+    cine
+    blueman
+    spotify
+    # vesktop
+    fastfetch
+    komikku
+    libreoffice
+    papers
+    qbittorrent
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    unstable-pkgs.kopuz
+    gnome-calculator
+    gnome-clocks
+    upscaler
+    networkmanagerapplet
+    qt6Packages.qt6ct
+    yt-dlp
+    btop
+    kdePackages.dolphin
+    kdePackages.gwenview
+    qdirstat
 
-      # Screenshots combo
-      satty
-      grim
-      slurp
+    # Screenshots combo
+    satty
+    grim
+    slurp
 
-      qgnomeplatform-qt6
-      adwaita-qt6
-    ];
+    qgnomeplatform-qt6
+    adwaita-qt6
+  ];
 
-    fonts.packages = with pkgs; [
-      inter
-      inputs.apple-fonts.packages.${pkgs.system}.sf-pro
-      inputs.apple-fonts.packages.${pkgs.system}.sf-mono
-      inputs.apple-fonts.packages.${pkgs.system}.ny
-    ];
+  fonts.packages = with pkgs; [
+    inter
+    inputs.apple-fonts.packages.${pkgs.system}.sf-pro
+    inputs.apple-fonts.packages.${pkgs.system}.sf-mono
+    inputs.apple-fonts.packages.${pkgs.system}.ny
+  ];
 
   # environment.variables = {
   #   XCURSOR_THEME = "Bibata-Modern-Classic";
@@ -189,12 +221,11 @@
 
   # Home manager
   home-manager = {
-     extraSpecialArgs = { inherit inputs; };
-     users = {
-       "credo" = import ./home.nix;
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "credo" = import ./home.nix;
     };
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -221,7 +252,7 @@
     enable = true;
     keyboards = {
       default = {
-        ids = [ "*" ];  # applies to all keyboards
+        ids = [ "*" ]; # applies to all keyboards
         settings = {
           main = {
             escape = "capslock";
@@ -236,7 +267,6 @@
   # USB auto mount
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
