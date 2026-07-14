@@ -106,5 +106,6 @@
     lavat
     localsend
     hyprlock
+    pandoc
   ];
 }
