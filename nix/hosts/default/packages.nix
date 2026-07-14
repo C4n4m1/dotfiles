@@ -103,5 +103,6 @@
     qgnomeplatform-qt6
     adwaita-qt6
     cmatrix
+    lavat
   ];
 }
