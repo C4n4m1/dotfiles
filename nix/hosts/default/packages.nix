@@ -107,5 +107,6 @@
     localsend
     hyprlock
     pandoc
+    hyprpicker
   ];
 }
