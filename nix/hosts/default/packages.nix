@@ -104,5 +104,6 @@
     adwaita-qt6
     cmatrix
     lavat
+    localsend
   ];
 }
