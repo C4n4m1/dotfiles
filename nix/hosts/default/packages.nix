@@ -105,5 +105,6 @@
     cmatrix
     lavat
     localsend
+    hyprlock
   ];
 }

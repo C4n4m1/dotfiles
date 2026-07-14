@@ -44,6 +44,6 @@ if ! git commit -aq -m "$commit_msg" >/tmp/git-commit.log 2>&1; then
 fi
 echo "Committed: $commit_msg"
 
-notify-send --icon=/home/credo/.local/share/icons/Colloid-Light/apps/scalable/distributor-logo-nixos.svg --app-name=helium "NixOS" "$pkg_name succesfully added"
+notify-send --icon=/home/credo/.local/share/icons/Colloid-Light/apps/scalable/distributor-logo-nixos.svg --app-name=NixOS "NixOS" "$pkg_name succesfully added"
 
 read -rp "Done. Press enter to close..."
