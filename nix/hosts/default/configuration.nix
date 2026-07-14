@@ -11,6 +11,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./packages.nix
   ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -19,7 +20,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
   programs.nix-ld.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 2;
+  boot.loader.systemd-boot.configurationLimit = 6;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -86,95 +87,6 @@
       "audio"
     ];
   };
-
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    # UTILITY / SYSTEM
-    vim
-    wget
-    ghostty
-    git
-    curl
-    stable-pkgs.fish
-    neovim
-    nautilus
-    eza
-    zoxide
-    fzf
-    keyd
-    awww
-    vivid
-    starship
-    brightnessctl
-    fd
-    bat
-    dysk
-    gowall
-    ntfs3g
-    stow
-
-    (inputs.quickshell.packages.${pkgs.system}.default.withModules [
-      pkgs.qt6.qt5compat
-      pkgs.qt6.qtwayland
-    ])
-
-    # PROGRAMING
-    rustup
-    rustc
-    zig
-    zed-editor # unstable
-    nodejs # unstable
-    gcc
-    clang
-    mariadb
-    sqlite
-    sqlitebrowser
-    php
-    opencode
-    jq
-    herdr # unstable
-    # LSP
-    nixd
-    nil
-
-    # GAMING
-    gamescope
-    wine
-
-    # APPS
-    pavucontrol
-    vicinae
-    obsidian
-    cine
-    blueman
-    spotify
-    vesktop
-    fastfetch
-    komikku
-    libreoffice
-    papers
-    qbittorrent
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    kopuz # unstable
-    gnome-calculator
-    gnome-clocks
-    upscaler
-    networkmanagerapplet
-    qt6Packages.qt6ct
-    yt-dlp
-    btop
-    kdePackages.dolphin
-    kdePackages.gwenview
-    qdirstat
-
-    # Screenshots combo
-    satty
-    grim
-    slurp
-
-    qgnomeplatform-qt6
-    adwaita-qt6
-  ];
 
   fonts.packages = with pkgs; [
     inter
