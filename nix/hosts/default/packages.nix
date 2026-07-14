@@ -56,6 +56,7 @@
     # LSP
     nixd
     nil
+    pnpm
 
     # GAMING
     gamescope
