@@ -109,5 +109,6 @@
     hyprlock
     pandoc
     hyprpicker
+    postgresql
   ];
 }
