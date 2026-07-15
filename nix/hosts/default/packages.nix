@@ -110,5 +110,6 @@
     pandoc
     hyprpicker
     postgresql
+    pgadmin4
   ];
 }
