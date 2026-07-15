@@ -111,5 +111,6 @@
     hyprpicker
     postgresql
     pgadmin4
+    spicetify-cli
   ];
 }
