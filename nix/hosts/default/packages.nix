@@ -139,5 +139,6 @@ in
     pandoc
     hyprpicker
     spicetify-cli
+    code-cursor
   ];
 }
