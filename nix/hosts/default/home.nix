@@ -72,6 +72,7 @@
   };
 
   home.pointerCursor = {
+    enable = true;
     name = "Bibata-Modern-Classic";
     size = 24;
     package = pkgs.bibata-cursors;
@@ -103,6 +104,11 @@
         general = "\"Inter ,12\"";
       };
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 
   # programs.vicinae = {

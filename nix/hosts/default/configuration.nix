@@ -19,12 +19,17 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libxcb-cursor
+      xorg.libxcb
+    ];
+  };
   boot.loader.systemd-boot.configurationLimit = 6;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
-
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -76,7 +81,14 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    permittedInsecurePackages = [
+      "electron-40.10.5"
+    ];
+  };
+
   users.users.credo = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -85,6 +97,9 @@
       "networkmanager"
       "video"
       "audio"
+      # android
+      "adbusers"
+      "kvm"
     ];
   };
 
@@ -164,6 +179,9 @@
       '';
     };
   };
+
+  # ANDROID DEV SETUP
+  nixpkgs.config.android_sdk.accept_license = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

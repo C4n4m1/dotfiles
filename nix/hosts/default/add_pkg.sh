@@ -33,7 +33,7 @@ current=$(nixos-rebuild list-generations | awk '$NF=="True" {printf "gen #%s, %s
 if [[ -n "$pkg_name" ]]; then
     commit_msg="NIXOS ADD PKG: $pkg_name ($current)"
 else
-    commit_msg="$current"
+    commit_msg="NIXOS PKG CHANGE: $current"
 fi
 
 # VERSION CONTROL
