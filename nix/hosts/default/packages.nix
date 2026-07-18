@@ -89,7 +89,8 @@ in
 
     # GAMING
     gamescope
-    wine
+    # wine
+    wine64
 
     # APPS
     pavucontrol
@@ -140,5 +141,6 @@ in
     hyprpicker
     spicetify-cli
     code-cursor
+    love
   ];
 }
