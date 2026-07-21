@@ -142,5 +142,7 @@ in
     spicetify-cli
     code-cursor
     love
+    ngrok
+    unzip
   ];
 }
