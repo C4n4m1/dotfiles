@@ -145,5 +145,6 @@ in
     ngrok
     unzip
     cloudflared
+    dig
   ];
 }
