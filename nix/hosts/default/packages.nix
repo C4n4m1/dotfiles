@@ -144,5 +144,6 @@ in
     love
     ngrok
     unzip
+    cloudflared
   ];
 }
