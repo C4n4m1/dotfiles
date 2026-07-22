@@ -146,5 +146,6 @@ in
     unzip
     cloudflared
     dig
+    tunnelto
   ];
 }
