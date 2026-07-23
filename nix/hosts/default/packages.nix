@@ -147,5 +147,7 @@ in
     cloudflared
     dig
     tunnelto
+    proton-vpn
+    krita
   ];
 }
