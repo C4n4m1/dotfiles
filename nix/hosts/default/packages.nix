@@ -149,5 +149,6 @@ in
     proton-vpn
     krita
     imagemagick
+    spotify
   ];
 }
