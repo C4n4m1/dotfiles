@@ -41,6 +41,13 @@
     memoryPercent = 100;
   };
 
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 8 * 1024; # 16GB
+    }
+  ];
+
   time.timeZone = "Africa/Lome";
   console.keyMap = "fr";
 

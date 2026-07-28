@@ -98,7 +98,6 @@ in
     obsidian
     cine
     blueman
-    spotify
     vesktop
     fastfetch
     komikku
@@ -149,5 +148,6 @@ in
     tunnelto
     proton-vpn
     krita
+    imagemagick
   ];
 }
