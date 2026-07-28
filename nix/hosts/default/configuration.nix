@@ -12,6 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./packages.nix
+      inputs.spicetify-nix.nixosModules.default
   ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -189,6 +190,24 @@
 
   # ANDROID DEV SETUP
   nixpkgs.config.android_sdk.accept_license = true;
+
+  programs.spicetify =
+  let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  in
+  {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+      hidePodcasts
+      shuffle # shuffle+ (special characters are sanitized out of extension names)
+    ];
+    enabledCustomApps = with spicePkgs.apps; [
+      newReleases
+      ncsVisualizer
+      marketplace
+    ];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

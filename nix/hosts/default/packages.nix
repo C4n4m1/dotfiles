@@ -113,6 +113,7 @@ in
     qt6Packages.qt6ct
     yt-dlp
     btop
+    spotify
 
     kdePackages.dolphin
     kdePackages.dolphin-plugins
@@ -138,7 +139,6 @@ in
     hyprlock
     pandoc
     hyprpicker
-    spicetify-cli
     code-cursor
     love
     ngrok
@@ -149,6 +149,6 @@ in
     proton-vpn
     krita
     imagemagick
-    spotify
+    cava
   ];
 }
