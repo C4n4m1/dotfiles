@@ -150,7 +150,7 @@ in
     krita
     imagemagick
     cava
-    onlyoffice-desktopeditors
     drawio
+    libreoffice-qt-fresh
   ];
 }
