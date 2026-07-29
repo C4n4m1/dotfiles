@@ -150,6 +150,6 @@ in
     krita
     imagemagick
     cava
-    onlyoffice-documentserver
+    onlyoffice-desktopeditors
   ];
 }
