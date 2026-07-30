@@ -101,7 +101,6 @@ in
     vesktop
     fastfetch
     komikku
-    libreoffice
     papers
     qbittorrent
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -152,5 +151,6 @@ in
     cava
     drawio
     libreoffice-qt-fresh
+    kdePackages.qtdeclarative
   ];
 }

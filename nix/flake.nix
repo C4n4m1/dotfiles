@@ -9,15 +9,14 @@
   inputs = {
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-node.url = "github:nixos/nixpkgs/567a49d1913ce81ac6e9582e3553dd90a955875f";
-
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -38,10 +37,6 @@
 
     vicinae.url = "github:vicinaehq/vicinae";
 
-    # stylix = {
-    #     url = "github:danth/stylix";
-    #     inputs.nixpkgs.follows = "nixpkgs";
-    #   };
   };
 
   outputs =
@@ -51,7 +46,6 @@
       vicinae,
       home-manager,
       nixpkgs-stable,
-      nixpkgs-node,
       ...
     }@inputs:
     # use "nixos", or your hostname as the name of the configuration
@@ -59,14 +53,9 @@
     let
       system = "x86_64-linux";
 
-      pkgs = nixpkgs.legacyPackages.${system};
+      # pkgs = nixpkgs.legacyPackages.${system};
 
       stable-pkgs = import nixpkgs-stable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      node-pkgs = import nixpkgs-node {
         inherit system;
         config.allowUnfree = true;
       };
