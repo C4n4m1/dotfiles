@@ -12,7 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./packages.nix
-      inputs.spicetify-nix.nixosModules.default
+    inputs.spicetify-nix.nixosModules.default
   ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -192,21 +192,46 @@
   nixpkgs.config.android_sdk.accept_license = true;
 
   programs.spicetify =
-  let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  in
-  {
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    in
+    {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        hidePodcasts
+        shuffle # shuffle+ (special characters are sanitized out of extension names)
+      ];
+      enabledCustomApps = with spicePkgs.apps; [
+        newReleases
+        ncsVisualizer
+        marketplace
+      ];
+    };
+
+  services.searx = {
     enable = true;
-    enabledExtensions = with spicePkgs.extensions; [
-      adblock
-      hidePodcasts
-      shuffle # shuffle+ (special characters are sanitized out of extension names)
-    ];
-    enabledCustomApps = with spicePkgs.apps; [
-      newReleases
-      ncsVisualizer
-      marketplace
-    ];
+    redisCreateLocally = true;
+    environmentFile = "/home/credo/.searxng.env";
+    settings.server = {
+      bind_address = "::1";
+      port = 8087;
+
+      ui = {
+        static_use_hash = true;
+        query_in_title = true;
+        infinite_scroll = false;
+        center_alignment = true;
+        default_theme = "simple";
+        theme_args.simple_style = "auto";
+        search_on_category_select = false;
+        hotkeys = "vim";
+      };
+      # WARNING: setting secret_key here might expose it to the nix cache
+      # see below for the sops or environment file instructions to prevent this
+      # secret_key = "Your secret key.";
+    };
+
   };
 
   # Open ports in the firewall.

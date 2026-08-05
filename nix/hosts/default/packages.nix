@@ -43,7 +43,7 @@ in
     git
     curl
     stable-pkgs.fish
-    neovim
+    stable-pkgs.neovim
     nautilus
     eza
     zoxide
@@ -86,6 +86,7 @@ in
     nixd
     nil
     pnpm
+    kdePackages.qtdeclarative # for qmlls
 
     # GAMING
     gamescope
@@ -151,6 +152,6 @@ in
     cava
     drawio
     libreoffice-qt-fresh
-    kdePackages.qtdeclarative
+    obs-studio
   ];
 }
