@@ -152,6 +152,7 @@ in
     obs-studio
     nicotine-plus
     proton-pass
-    gparted
+    dysk
+    gnome-disk-utility
   ];
 }
