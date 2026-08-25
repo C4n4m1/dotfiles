@@ -68,7 +68,7 @@
   #  /etc/profiles/per-user/credo/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "zed";
   };
 
   home.pointerCursor = {

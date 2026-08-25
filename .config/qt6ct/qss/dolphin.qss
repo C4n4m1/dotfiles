@@ -1,0 +1,44 @@
+/* Overall background */
+QWidget {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+}
+
+/* Sidebar / panels */
+QListView, QTreeView {
+  background-color: #181825;
+  alternate-background-color: #1e1e2e;
+  border: none;
+}
+
+/* Selected item */
+QListView::item:selected, QTreeView::item:selected {
+  background-color: #313244;
+  color: #89b4fa;
+}
+
+/* Toolbar */
+QToolBar {
+  background-color: #181825;
+  border-bottom: 1px solid #313244;
+  spacing: 4px;
+}
+
+/* Address bar */
+QLineEdit {
+  background-color: #313244;
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: #cdd6f4;
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+  background: #1e1e2e;
+  width: 8px;
+}
+QScrollBar::handle:vertical {
+  background: #45475a;
+  border-radius: 4px;
+}

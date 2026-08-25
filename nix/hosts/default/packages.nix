@@ -7,10 +7,10 @@
 
 let
   androidComposition = pkgs.androidenv.composeAndroidPackages {
-    cmdLineToolsVersion = "13.0";
-    platformToolsVersion = "35.0.2";
-    buildToolsVersions = [ "35.0.0" ];
-    platformVersions = [ "35" ];
+    # cmdLineToolsVersion = "13.0";
+    # platformToolsVersion = "35.0.2";
+    # buildToolsVersions = [ "35.0.0" ];
+    # platformVersions = [ "35" ];
     abiVersions = [ "x86_64" ]; # match your host CPU for KVM accel
     systemImageTypes = [ "google_apis_playstore" ];
     includeSystemImages = true;
@@ -19,6 +19,7 @@ let
     useGoogleAPIs = true;
   };
   androidSdk = androidComposition.androidsdk;
+  hayase = pkgs.callPackage ./custom-pkgs/hayase.nix { };
 in
 {
   environment.sessionVariables = {
@@ -114,16 +115,17 @@ in
     yt-dlp
     btop
     spotify
-
-    kdePackages.dolphin
-    kdePackages.dolphin-plugins
-    kdePackages.kio-extras # sftp, fish, etc.
-    kdePackages.ffmpegthumbs # video thumbnails
-    kdePackages.kdegraphics-thumbnailers
-    kdePackages.qtsvg # SVG icon support (needed outside KDE!)
-    kdePackages.kimageformats # extra image format previews
-    qt6Packages.qt6ct # Qt theming outside Plasma
     kdePackages.gwenview
+    hayase
+
+    # kdePackages.dolphin
+    # kdePackages.dolphin-plugins
+    # kdePackages.kio-extras # sftp, fish, etc.
+    # kdePackages.ffmpegthumbs # video thumbnails
+    # kdePackages.kdegraphics-thumbnailers
+    # kdePackages.qtsvg # SVG icon support (needed outside KDE!)
+    # kdePackages.kimageformats # extra image format previews
+    # qt6Packages.qt6ct # Qt theming outside Plasma
     qdirstat
 
     # Screenshots combo
@@ -133,25 +135,23 @@ in
 
     qgnomeplatform-qt6
     adwaita-qt6
-    cmatrix
-    lavat
     localsend
     hyprlock
     pandoc
     hyprpicker
     code-cursor
     love
-    ngrok
     unzip
-    cloudflared
     dig
     tunnelto
-    proton-vpn
     krita
     imagemagick
     cava
     drawio
     libreoffice-qt-fresh
     obs-studio
+    nicotine-plus
+    proton-pass
+    gparted
   ];
 }
