@@ -154,5 +154,6 @@ in
     proton-pass
     dysk
     gnome-disk-utility
+    hyphenDicts.fr_FR
   ];
 }
