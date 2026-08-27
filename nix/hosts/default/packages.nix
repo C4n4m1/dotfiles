@@ -28,6 +28,7 @@ in
     LD_LIBRARY_PATH = [ "${pkgs.libxcb-cursor}/lib" ];
     JAVA_HOME = "${pkgs.jdk17.home}";
     ANDROID_AVD_HOME = "$HOME/.android/avd";
+    DICPATH = "/run/current-system/sw/share/hunspell";
     QT_QPA_PLAFORM = "wayland";
   };
 
@@ -155,5 +156,8 @@ in
     dysk
     gnome-disk-utility
     hyphenDicts.fr_FR
+    hunspellDicts.fr-moderne
+    hunspell
+    scrcpy
   ];
 }
