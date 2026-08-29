@@ -37,6 +37,7 @@ in
     androidSdk
     pkgs.jdk17
     xwayland-satellite
+    pkgs.android-tools
 
     # UTILITY / SYSTEM
     vim
@@ -159,5 +160,6 @@ in
     hunspellDicts.fr-moderne
     hunspell
     scrcpy
+    ddcutil
   ];
 }
