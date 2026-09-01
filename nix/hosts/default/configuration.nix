@@ -13,6 +13,7 @@
     ./hardware-configuration.nix
     ./packages.nix
     inputs.spicetify-nix.nixosModules.default
+    inputs.monique.nixosModules.default
   ];
 
   hardware.cpu.amd.updateMicrocode = true;
@@ -191,6 +192,7 @@
   # ANDROID DEV SETUP
   nixpkgs.config.android_sdk.accept_license = true;
 
+  programs.monique.enable = true;
   programs.spicetify =
     let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};

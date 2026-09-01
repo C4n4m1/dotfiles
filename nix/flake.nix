@@ -37,6 +37,11 @@
 
     vicinae.url = "github:vicinaehq/vicinae";
 
+    monique = {
+      url = "github:ToRvaLDz/monique";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
