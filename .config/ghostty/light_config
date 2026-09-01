@@ -1,0 +1,68 @@
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+font-family = Geist Mono Medium
+font-size = 11.5
+adjust-cell-height = 10%
+theme = Ayu Light
+# cursor-color =  #c9c7cd
+cursor-opacity = 1
+mouse-hide-while-typing
+mouse-scroll-multiplier = 1
+background-opacity-cells = true
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-theme = ghostty
+clipboard-paste-protection = true
+shell-integration = detect
+shell-integration-features = sudo
+bell-features = system,attention
+quit-after-last-window-closed = false
+confirm-close-surface = false
+resize-overlay  = never
+
+gtk-tabs-location = hidden
+# bottom or hidden
+
+# KEYBINDS
+
+# keybind =
+
+keybind = shift+escape=toggle_split_zoom
+
+keybind = ctrl+&=goto_tab:1
+keybind = ctrl+é=goto_tab:2
+keybind = ctrl+"=goto_tab:3
+keybind = ctrl+'=goto_tab:4
+keybind = ctrl+(=goto_tab:5
+keybind = ctrl+-=goto_tab:6
+keybind = ctrl+è=goto_tab:7
+keybind = ctrl+_=goto_tab:8
+keybind = ctrl+ç=goto_tab:9
+keybind = ctrl+à=goto_tab:10
+
+keybind = ctrl+z=toggle_tab_overview
+keybind = ctrl+enter=new_split
+
+keybind = global:ctrl+shift+enter=toggle_quick_terminal
+keybind = ctrl+w=close_surface
+
+keybind = alt+left=goto_split:left
+keybind = alt+right=goto_split:right
+keybind = alt+up=goto_split:up
+keybind = alt+down=goto_split:down
+
+keybind = ctrl+backspace=text:\x17
+
+# keybind = ctrl+w>l=goto_split:left
+# keybind = ctrl+w>h=goto_split:right
+# keybind = ctrl+w>k=goto_split:up
+# keybind = ctrl+w>j=goto_split:down
+
+# SHADERS
+
+custom-shader = shaders/cursor_warp.glsl
+# custom-shader = shaders/crt.glsl
+custom-shader-animation = always
+# custom-shader = /home/credo/.config/ghostty/shaders/cursor_warp.glsl

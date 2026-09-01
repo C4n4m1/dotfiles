@@ -1,0 +1,237 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Editor || Terminal || ProjectPanel || GitPanel",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-space": "workspace::ToggleBottomDock",
+      "alt-shift-space": "workspace::NewCenterTerminal",
+      "alt-t": "workspace::ToggleBottomDock",
+      // "ctrl-alt-t b": "editor::ToggleTabBar",
+      "alt-T": "editor::ToggleTabBar",
+      "ctrl-alt-shift-b r": "editor::ToggleBreadcrumb",
+      // "alt-b": ["workspace::SendKeystrokes", "ctrl-alt-t b ctrl-alt-shift-b r"],
+      "alt-o": "outline_panel::Toggle",
+      "alt-e": "project_panel::Toggle",
+      "alt-a": "agent::Toggle",
+      "alt-g": "git_panel::Toggle",
+    },
+  },
+  // {
+  //   "context": "Editor  Vim_mode==Normal",
+  //   "bindings": {
+  //     "space E": "outline_panel::RevealInFileManager"
+  //   }
+
+  {
+    "context": "Terminal",
+    "bindings": {
+      "alt-down": "workspace::ActivatePaneDown",
+      "alt-up": "workspace::ActivatePaneUp",
+      "alt-left": "workspace::ActivatePaneLeft",
+      "alt-right": "workspace::ActivatePaneRight",
+      "alt-t": "workspace::ToggleBottomDock",
+      "alt-n": "workspace::NewTerminal",
+      "alt-v": "terminal::ToggleViMode",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-down": "workspace::ActivatePaneDown",
+      "alt-up": "workspace::ActivatePaneUp",
+      "alt-left": "workspace::ActivatePaneLeft",
+      "alt-right": "workspace::ActivatePaneRight",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-k": "pane::SplitUp",
+      "alt-j": "pane::SplitDown",
+      "alt-h": "pane::SplitLeft",
+      "alt-l": "pane::SplitRight",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-r": ["task::Spawn", { "task_name": "run_file" }],
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-n": "project_panel::NewFile",
+      "ctrl-o": "project_panel::NewFile",
+      "ctrl-y": "project_panel::Copy",
+      "ctrl-p": "project_panel::Paste",
+      "ctrl-r": "project_panel::Rename",
+      "ctrl-x": "project_panel::Cut",
+      "ctrl-d": "project_panel::NewDirectory",
+      "ctrl-f": "project_panel::NewSearchInDirectory",
+      "ctrl-X": "project_panel::Trash",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "space s f": [
+        "task::Spawn",
+        { "task_name": "File Finder", "reveal_target": "center" },
+      ],
+      "space enter": ["task::Spawn", { "task_name": "run_file" }],
+      "space e": "pane::RevealInProjectPanel",
+      "space p e": "diagnostics::Deploy",
+      "space t": "terminal_panel::ToggleFocus",
+      // "g shift-a": "editor::FindAllReferences",
+      "space f": "editor::Format",
+      "space y": ["vim::Yank","%"],
+    },
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      // Traditional Vim behavior
+      "q": "vim::AnyQuotes",
+      "b": "vim::AnyBrackets",
+    },
+  },
+  {
+    "context": "VimControl && !menu && vim_mode != operator",
+    "bindings": {
+      "w": "vim::NextSubwordStart",
+      "b": "vim::PreviousSubwordStart",
+      "e": "vim::NextSubwordEnd",
+      "g e": "vim::PreviousSubwordEnd",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-p": ["terminal::SendKeystroke", "ctrl-p"],
+      "ctrl-alt-p": ["terminal::SendKeystroke", "ctrl-alt-p"],
+      "ctrl-alt-v": ["terminal::SendKeystroke", "ctrl-alt-v"],
+    },
+  },
+  {
+    "context": "((vim_mode == visual) && !menu)",
+    "bindings": {
+      "alt-s": [
+        "editor::SplitSelectionIntoLines",
+        {
+          "keep_selections": true,
+        },
+      ],
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "ctrl-g ctrl-d": "editor::GoToDefinitionSplit",
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "ctrl-g ctrl-y": "editor::GoToTypeDefinitionSplit",
+    },
+  },
+  // Add ability to navigate through menu items with (ctrl + n, ctrl + p)
+  // ctrl + n works by default, but ctrl + p didn't in some cases due to conflicts
+  {
+    "context": "(FileFinder || FileFinder > Picker > Editor)",
+    "bindings": {
+      "ctrl-p": null,
+    },
+  },
+  {
+    "context": "",
+    "bindings": {
+      "ctrl-p": "menu::SelectPrevious",
+    },
+  },
+  // {
+  //   "context": "VimControl && !menu",
+  //   "bindings": {
+  //     "f": ["vim::PushFindForward", { "before": false, "multiline": true }],
+  //     "t": ["vim::PushFindForward", { "before": true, "multiline": true }],
+  //     "shift-f": [
+  //       "vim::PushFindBackward",
+  //       { "after": false, "multiline": true }
+  //     ],
+  //     "shift-t": ["vim::PushFindBackward", { "after": true, "multiline": true }]
+  //   }
+  // }
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-&": ["pane::ActivateItem", 0],
+      "alt-eacute": ["pane::ActivateItem", 1],
+      "alt-\"": ["pane::ActivateItem", 2],
+      "alt-'": ["pane::ActivateItem", 3],
+      "alt-(": ["pane::ActivateItem", 4],
+      "alt--": ["pane::ActivateItem", 5],
+      "alt-egrave": ["pane::ActivateItem", 6],
+      "alt-_": ["pane::ActivateItem", 7],
+      "alt-ccedilla": ["pane::ActivateItem", 8],
+      "alt-agrave": ["pane::ActivateItem", 9],
+
+      // From niri config, it's hard to find the exact keys label for azerty
+      // "alt-ampersand": ["pane::ActivateItem", 1],
+      // "alt-eacute": ["pane::ActivateItem", 2],
+      // "alt-quotedbl": ["pane::ActivateItem", 3],
+      // "alt-apostrophe": ["pane::ActivateItem", 4],
+      // "alt-parenleft": ["pane::ActivateItem", 5],
+      // "alt-minus": ["pane::ActivateItem", 6],
+      // "alt-egrave": ["pane::ActivateItem", 7],
+      // "alt-underscore": ["pane::ActivateItem", 8],
+      // "alt-ccedilla": ["pane::ActivateItem", 9],
+      // "alt-agrave": ["pane::ActivateItem", 10],
+    },
+  },
+  {
+    "context": "CommitEditor > Editor",
+    "bindings": {
+      "ctrl-g c": "git::Commit",
+    },
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "ctrl-g p": "git::Push",
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "vim_mode == literal",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "Workspace || normal || terminal",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleLeftDock",
+    },
+  }
+]

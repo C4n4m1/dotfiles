@@ -1,0 +1,136 @@
+{
+  "server": null,
+  "servers": [],
+  "active_source": "Local",
+  "source_explicitly_set": false,
+  "music_directory": [
+    "/home/credo/Music"
+  ],
+  "theme": "album-art",
+  "device_id": "ed0a1289-4db1-40d3-8227-79f228bf1ddc",
+  "discord_presence": false,
+  "sort_order": "Title",
+  "artist_view_order": "Tracks",
+  "listen_counts": {},
+  "musicbrainz_token": "",
+  "lastfm_api_key": "",
+  "lastfm_api_secret": "",
+  "lastfm_session_key": "",
+  "language": "en",
+  "reduce_animations": false,
+  "auto_check_updates": true,
+  "show_source_toggle": true,
+  "sidebar_order": [
+    "home",
+    "search",
+    "library",
+    "albums",
+    "artists",
+    "playlists",
+    "favorites",
+    "activity",
+    "ytdlp",
+    "radio"
+  ],
+  "volume": 0.0,
+  "volume_scroll_step": 0.05,
+  "crossfade_seconds": 0,
+  "custom_themes": {},
+  "back_behavior": "RewindThenPrev",
+  "channel_mode": "Stereo",
+  "equalizer": {
+    "enabled": false,
+    "preset": "Flat",
+    "bands": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preamp_db": 0.0
+  },
+  "ytdlp_output_dir": "",
+  "ytdlp_options": {
+    "embed_metadata": true,
+    "embed_thumbnail": true,
+    "postprocess_thumbnail_square": false,
+    "embed_chapters": false,
+    "embed_subs": false,
+    "embed_info_json": false,
+    "write_thumbnail": false,
+    "write_description": false,
+    "write_info_json": false,
+    "write_subs": false,
+    "write_auto_subs": false,
+    "write_comments": false,
+    "sponsorblock": false,
+    "sponsorblock_mark": false,
+    "split_chapters": false,
+    "convert_thumbnail": "",
+    "no_playlist": false,
+    "xattrs": false,
+    "no_mtime": false,
+    "rate_limit": "",
+    "cookies_from_browser": "",
+    "js_runtimes": "",
+    "audio_quality": 0
+  },
+  "ytdlp_history": [],
+  "titlebar_mode": "Off",
+  "offline_quality": "Kbps320",
+  "offline_tracks": {},
+  "player_bar_position": "Bottom",
+  "ui_style": "Normal",
+  "hero_height": 300,
+  "home_sections": [
+    {
+      "key": "hero",
+      "enabled": true
+    },
+    {
+      "key": "continue_listening",
+      "enabled": true
+    },
+    {
+      "key": "listen_now",
+      "enabled": true
+    },
+    {
+      "key": "top_artists",
+      "enabled": true
+    },
+    {
+      "key": "new_releases",
+      "enabled": true
+    },
+    {
+      "key": "made_for_you",
+      "enabled": true
+    },
+    {
+      "key": "recently_added",
+      "enabled": true
+    },
+    {
+      "key": "playlists",
+      "enabled": true
+    }
+  ],
+  "recently_played": [
+    "/home/credo/Music/21 Savage - american dream (2024)/03. 21 Savage - redrum.mp3",
+    "/home/credo/Music/21 Savage - american dream (2024)/02. 21 Savage - all of me.mp3"
+  ],
+  "recently_played_server": [],
+  "listen_now_style": "List",
+  "artist_photo_source": "AlbumCover",
+  "auto_fetch_covers": false,
+  "cover_fetch_strategy": "MusicBrainzFirst",
+  "radio_registries": [
+    {
+      "url": "https://raw.githubusercontent.com/Kopuz-org/kopuz/refs/heads/master/radio-registry/index.json",
+      "enabled": true,
+      "is_default": true
+    }
+  ]
+}

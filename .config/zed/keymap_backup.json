@@ -1,0 +1,74 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-e": "workspace::ToggleLeftDock",
+      "alt-space": "workspace::ToggleRightDock",
+      "alt-shift-space": "workspace::NewCenterTerminal"
+    }
+  },
+  // {
+  //   "context": "Editor & Vim_mode==Normal",
+  //   "bindings": {
+  //     "space E
+  //   }
+  // },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "alt-down": ["workspace::ActivatePaneInDirection", "Down"],
+      "alt-up": ["workspace::ActivatePaneInDirection", "Up"],
+      "alt-left": ["workspace::ActivatePaneInDirection", "Left"],
+      "alt-right": ["workspace::ActivatePaneInDirection", "Right"]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-down": ["workspace::ActivatePaneInDirection", "Down"],
+      "alt-up": ["workspace::ActivatePaneInDirection", "Up"],
+      "alt-left": ["workspace::ActivatePaneInDirection", "Left"],
+      "alt-right": ["workspace::ActivatePaneInDirection", "Right"]
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-k": "pane::SplitUp",
+      "alt-j": "pane::SplitDown",
+      "alt-h": "pane::SplitLeft",
+      "alt-l": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-r": ["task::Spawn", { "task_name": "run file" }]
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-n": "project_panel::NewFile",
+      "ctrl-y": "project_panel::Copy",
+      "ctrl-p": "project_panel::Paste",
+      "ctrl-r": "project_panel::Rename",
+      "ctrl-x": "project_panel::Cut",
+      "ctrl-d": "project_panel::NewDirectory",
+      "ctrl-f": "project_panel::NewSearchInDirectory"
+    }
+  }
+]

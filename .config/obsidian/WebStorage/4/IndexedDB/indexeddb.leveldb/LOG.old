@@ -1,0 +1,15 @@
+2025/02/02-19:27:04.288 9a8e Reusing MANIFEST /home/credo/.config/obsidian/WebStorage/4/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/02/02-19:27:04.290 9a8e Recovering log #4
+2025/02/02-19:27:04.290 9a8e Reusing old log /home/credo/.config/obsidian/WebStorage/4/IndexedDB/indexeddb.leveldb/000004.log 
+2025/02/02-19:27:08.530 99ce Level-0 table #8: started
+2025/02/02-19:27:08.535 99ce Level-0 table #8: 4826 bytes OK
+2025/02/02-19:27:08.542 99ce Delete type=0 #4
+2025/02/02-19:27:08.543 99ce Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2025/02/02-19:27:08.543 99ce Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x02\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00 Q\x12\FyB\x00\x03\x00\x00\x00\x00\x00\x00\x00@' @ 181 : 0
+2025/02/02-19:27:08.543 99ce Compacting 1@1 + 1@2 files
+2025/02/02-19:27:08.548 99ce Generated table #9@1: 38 keys, 995 bytes
+2025/02/02-19:27:08.548 99ce Compacted 1@1 + 1@2 files => 995 bytes
+2025/02/02-19:27:08.554 99ce compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/02/02-19:27:08.554 99ce Delete type=2 #5
+2025/02/02-19:27:08.555 99ce Delete type=2 #8
+2025/02/02-19:27:08.555 99ce Manual compaction at level-1 from '\x00\x02\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00 Q\x12\FyB\x00\x03\x00\x00\x00\x00\x00\x00\x00@' @ 181 : 0 .. (end); will stop at (end)
