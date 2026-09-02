@@ -1,0 +1,265 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "imports": [
+      "custom_settings.json"
+   ],
+   "close_on_focus_loss": false,
+   "pop_to_root_on_close": false,
+   "keybinding": "default",
+   "search_files_in_root": false,
+   "font": {
+      "rendering": "native",
+      "normal": {
+         "family": "Inter Medium",
+         "size": 10.5
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "oldworld"
+      }
+   },
+   "telemetry": {
+      "system_info": false
+   },
+   "launcher_window": {
+      "opacity": 0.9,
+      "client_side_decorations": {
+         "enabled": true,
+         "border_width": 2
+      },
+      "material": "blur"
+   },
+   "keybinds": {
+      "action.move-down": "control+alt+ARROWDOWN",
+      "action.move-up": "control+alt+ARROWUP",
+      "action.new": "control+shift+N",
+      "open-search-filter": "control+P",
+      "toggle-action-panel": "control+B"
+   },
+   "favorites": [
+      "applications:obsidian"
+   ],
+   "providers": {
+      "@c4n4m1/store.vicinae.zoxide-recent-directories": {
+         "preferences": {
+            "application": "zed",
+            "alternativeApplication": "nautilus",
+            "defaultFilter": "all"
+         }
+      },
+      "@dagimg-dot/store.vicinae.player-pilot": {
+         "entrypoints": {
+            "player-pilot": {
+               "alias": "players"
+            }
+         }
+      },
+      "@dagimg-dot/store.vicinae.wifi-commander": {
+         "preferences": {
+            "network-cli-tool": "nmcli"
+         },
+         "entrypoints": {
+            "scan-wifi": {
+               "alias": "wifi"
+            }
+         }
+      },
+      "@josephschmitt/store.raycast.gif-search": {
+         "entrypoints": {
+            "search": {
+               "alias": "gif"
+            }
+         }
+      },
+      "@knoopx/store.vicinae.nix": {
+         "entrypoints": {
+            "options": {
+               "alias": "opts"
+            },
+            "packages": {
+               "alias": "pkg"
+            }
+         }
+      },
+      "@knoopx/store.vicinae.systemd": {
+         "entrypoints": {
+            "services": {
+               "alias": "services"
+            }
+         }
+      },
+      "@leonkohli/store.vicinae.process-manager": {
+         "preferences": {
+            "clear-search-after-kill": false,
+            "close-window-after-kill": false,
+            "process-limit": "100",
+            "refresh-interval": "2000",
+            "search-in-paths": true,
+            "search-in-pid": true,
+            "show-path": false,
+            "show-pid": true,
+            "show-system-processes": false,
+            "sort-by-memory": true
+         },
+         "entrypoints": {
+            "processes": {
+               "alias": "kill"
+            }
+         }
+      },
+      "@luknl/store.raycast.myanimelist-search": {
+         "entrypoints": {
+            "manage-watchlist": {
+               "alias": "mal"
+            }
+         }
+      },
+      "@luleyleo/store.vicinae.wiktionary": {
+         "entrypoints": {
+            "define": {
+               "alias": "dict"
+            }
+         }
+      },
+      "@marcjulian/store.raycast.obsidian": {
+         "preferences": {
+            "removeLatex": false,
+            "removeLinks": false,
+            "removeYAML": false,
+            "vaultPath": "/home/credo/Documents/MAin"
+         },
+         "entrypoints": {
+            "appendTaskCommand": {
+               "preferences": {
+                  "notePath": "Tasks",
+                  "noteTag": "#vc"
+               }
+            },
+            "searchNoteCommand": {
+               "preferences": {
+                  "fuzzySearch": true,
+                  "primaryAction": "obsidian",
+                  "searchContent": true
+               }
+            }
+         }
+      },
+      "@sovereign/awww-switcher": {
+         "preferences": {
+            "wallpaperPath": "/home/credo/Pictures/wallpapers_png",
+            "colorGenTool": "none",
+            "gridRows": "4",
+            "postCommand": "/home/credo/Pictures/wallpaper.sh ${wallpaper}",
+            "postProduction": "no",
+            "showImageDetails": false,
+            "toggleVicinaeSetting": false,
+            "transitionDuration": "2",
+            "transitionFPS": "60",
+            "transitionStep": "90",
+            "transitionType": "wipe"
+         },
+         "entrypoints": {
+            "wprandom": {
+               "alias": "dev"
+            }
+         }
+      },
+      "@sovereign/store.vicinae.awww-switcher": {
+         "preferences": {
+            "colorGenTool": "none",
+            "gridRows": "4",
+            "postCommand": "/home/credo/Pictures/wallpaper.sh ${wallpaper}",
+            "postProduction": "no",
+            "showImageDetails": false,
+            "toggleVicinaeSetting": false,
+            "transitionDuration": "1",
+            "transitionFPS": "60",
+            "transitionStep": "255",
+            "transitionType": "center",
+            "wallpaperPath": "/home/credo/Pictures/wallpapers_png"
+         }
+      },
+      "applications": {
+         "preferences": {
+            "defaultAction": "focus",
+            "paths": [
+               "/home/credo/.local/share/applications",
+               "/var/lib/flatpak/exports/share/applications",
+               "/usr/local/share/applications",
+               "/usr/share/applications"
+            ]
+         }
+      },
+      "clipboard": {
+         "preferences": {
+            "encryption": false,
+            "eraseOnStartup": false,
+            "monitoring": true,
+            "ignorePasswords": false
+         }
+      },
+      "core": {
+         "entrypoints": {
+            "inspect-local-storage": {
+               "alias": "storage",
+               "enabled": false
+            }
+         }
+      },
+      "files": {
+         "entrypoints": {
+            "search": {
+               "alias": "fs"
+            }
+         }
+      },
+      "power": {
+         "entrypoints": {
+            "power-off": {
+               "alias": "shutdown"
+            },
+            "reboot": {
+               "alias": "reboot"
+            }
+         }
+      },
+      "scripts": {
+         "entrypoints": {
+            "toggleDND.sh": {
+               "alias": "dnd"
+            }
+         }
+      },
+      "snippets": {
+         "preferences": {
+            "enabled": true,
+            "keyDelay": "2",
+            "layout": "fr",
+            "prePasteDelay": "0",
+            "undo": true
+         }
+      },
+      "system": {
+         "entrypoints": {
+            "browse-apps": {
+               "enabled": true,
+               "preferences": {
+                  "showHidden": true,
+                  "sortAlphabetically": true
+               }
+            }
+         }
+      }
+   }
+}

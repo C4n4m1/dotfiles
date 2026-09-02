@@ -1,0 +1,39 @@
+{
+  "launcher_window": {
+    "opacity": 0.8,
+    "compact_mode": {
+      "enabled": true
+    },
+    "layer_shell": {
+      "enabled": true,
+      "keyboard_interactivity": "exclusive", // 'exclusive' | 'on_demand'
+      // either 'overlay' or 'top'.
+      // Other layers are not supported as they are unsuitable for a launcher.
+      // 'top' is recommended as using 'overlay' will make the vicinae window appear on top of IME popovers in some scenarios.
+      "layer": "overlay"
+    },
+    "client_side_decorations": {
+      "enabled": true,
+      "rounding": 15,
+      "border_width": 2,
+      "shadow_size": 10
+    },
+    "size": {
+      "width": 850,
+      "height": 550
+    }
+  },
+
+  "providers": {
+    "@sovereign/store.vicinae.awww-switcher": {
+      "preferences": {
+        "postCommand": "/home/credo/Pictures/wallpaper.sh ${wallpaper}",
+        "showImageDetails": false,
+        "toggleVicinaeSetting": false,
+        "transitionType": "none",
+        "wallpaperPath": "/home/credo/Pictures/wallpapers_png"
+      }
+    }
+  },
+  "place-within-backdrop": true
+}

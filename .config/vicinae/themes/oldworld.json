@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "appearance": "dark",
+  "icon": "./mob.png",
+  "name": "Oldworld",
+  "description": "Soothing pastel colors for dark environments",
+  "palette": {
+    "background": "#161617",
+    "foreground": "#C9C7CD",
+    "blue": "#85B5BA",
+    "green": "#90B99F",
+    "magenta": "#E29ECA",
+    "orange": "#F5A191",
+    "purple": "#ACA1CF",
+    "red": "#EA83A5",
+    "yellow": "#E6B99D",
+    "cyan": "#92A2D5"
+  }
+}
