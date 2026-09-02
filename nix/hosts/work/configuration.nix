@@ -206,6 +206,23 @@
     checkReversePath = "loose";
   };
 
+  systemd.user.services.sshfs-home = {
+    Unit = {
+      Description = "Mount home machine via sshfs";
+      After = [ "network-online.target" "tailscaled.service" ];
+      Wants = [ "network-online.target" ];
+    };
+    Service = {
+      Type = "forking";
+      ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/mnt/home";
+      ExecStart = "${pkgs.sshfs}/bin/sshfs home:/home/credo %h/mnt/home -o reconnect,ServerAliveInterval=15,IdentityFile=%h/.ssh/id_ed25519_home,_netdev,idmap=user";
+      ExecStop = "${pkgs.fuse}/bin/fusermount -u %h/mnt/home";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+    Install.WantedBy = [ "default.target" ];
+  };
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
