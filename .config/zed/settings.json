@@ -138,7 +138,7 @@
     "light": "Quiet Light",
     "dark": "Mellow"
   },
-  "buffer_font_family": "IoskeleyMono Nerd Font",
+  "buffer_font_family": "Geist Mono",
   "buffer_font_weight": 400,
   "ui_font_weight": 400,
   "unnecessary_code_fade": 0.7,
@@ -224,6 +224,7 @@
     }
   },
   "terminal": {
+    "font_family": "Geist Mono",
     "minimum_contrast": 0,
     "font_size": 15.0,
     "font_weight": 300,
