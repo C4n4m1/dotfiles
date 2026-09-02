@@ -258,6 +258,10 @@
       PermitRootLogin = "no";
     };
   };
+
+  users.users.credo.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBxUvER9WbiDVlLIpgZdLlF17vBI1laOobL2PkPjZ9X credo@work-to-home"
+  ];
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
