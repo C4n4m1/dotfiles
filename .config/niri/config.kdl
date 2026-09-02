@@ -956,3 +956,5 @@ xwayland-satellite {
 
 include "overview.kdl"
 
+// Monique monitor configuration
+include "monitors.kdl"

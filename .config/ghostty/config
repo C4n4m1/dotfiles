@@ -3,14 +3,14 @@
 
 adjust-cursor-thickness = 1
 # alpha-blending = linear
-font-family = IoskeleyMono NerdFont
+font-family = Geist Mono
 font-style = Medium
 font-size = 11.8
 # Map bold styles to regular/italic counterparts
 window-decoration = false
 font-style-bold = false
 font-style-bold-italic = false
-adjust-cell-height = 13%
+adjust-cell-height = 11%
 theme = Oldworld
 background = #131314
 # background = #070708

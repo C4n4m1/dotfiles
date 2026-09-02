@@ -59,7 +59,7 @@ Singleton {
     // Font
     property var fontFamily: "Inter Semibold"
     property var iconFontFamily: "SF Pro Text"
-    property var monospaceFont: "IoskeleyMono NerdFont"
+    property var monospaceFont: "Geist Mono"
 
     property int iconFontWeight: 300
     property int fontWeight: 600

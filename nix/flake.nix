@@ -24,7 +24,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -72,9 +71,6 @@
           specialArgs = { inherit inputs stable-pkgs; };
           modules = [
             ./hosts/default/configuration.nix
-
-            # vicinae.nixosModules.default
-
             inputs.home-manager.nixosModules.home-manager
             {
 
@@ -83,6 +79,21 @@
                 useUserPackages = true;
                 backupFileExtension = "backup";
                 # extraSpecialArgs = { inherit inputs node-pkgs; };
+              };
+            }
+          ];
+        };
+
+        work = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs stable-pkgs; };
+          modules = [
+            ./hosts/work/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
               };
             }
           ];
