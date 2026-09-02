@@ -110,6 +110,7 @@
     inputs.apple-fonts.packages.${pkgs.system}.sf-pro
     inputs.apple-fonts.packages.${pkgs.system}.sf-mono
     inputs.apple-fonts.packages.${pkgs.system}.ny
+    geist-font
   ];
 
   programs.firefox.enable = true;
@@ -193,6 +194,17 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
+
+  # Remote access config
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
+
+  networking.firewall = {
+    trustedInterfaces = [ "tailscale0" ];
+    checkReversePath = "loose";
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

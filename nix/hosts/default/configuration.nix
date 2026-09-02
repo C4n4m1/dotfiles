@@ -140,8 +140,6 @@
 
   # SERVICES
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # DB for key-value gnome and gtk config
   programs.dconf.enable = true;
@@ -242,6 +240,24 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
+  # Remote access config
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client"; # "client" suffit ici, "both" seulement si tu veux exposer des sous-réseaux
+  };
+
+  # Permet au firewall NixOS de laisser passer le trafic Tailscale
+  networking.firewall = {
+    trustedInterfaces = [ "tailscale0" ];
+    checkReversePath = "loose"; # nécessaire pour éviter des soucis de routing sur l'interface tailscale
+  };
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+    };
+  };
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
