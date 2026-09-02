@@ -1,3 +1,28 @@
 .config/niri/monitor.kdl
 .config/niri/overview.kdl
 .config/quickshell/services/scripts/token.json
+
+# Obsidian (Electron) runtime cache — not config
+.config/obsidian/Cache/
+.config/obsidian/Code Cache/
+.config/obsidian/GPUCache/
+.config/obsidian/DawnGraphiteCache/
+.config/obsidian/DawnWebGPUCache/
+.config/obsidian/blob_storage/
+.config/obsidian/IndexedDB/
+.config/obsidian/Local Storage/
+.config/obsidian/Session Storage/
+.config/obsidian/Service Worker/
+.config/obsidian/WebStorage/
+.config/obsidian/Network Persistent State
+.config/obsidian/TransportSecurity
+.config/obsidian/Cookies
+.config/obsidian/Cookies-journal
+.config/obsidian/DIPS
+.config/obsidian/DIPS-wal
+.config/obsidian/SharedStorage
+.config/obsidian/SharedStorage-wal
+.config/obsidian/SingletonCookie
+.config/obsidian/SingletonLock
+.config/obsidian/SingletonSocket
+.config/obsidian/obsidian.log
