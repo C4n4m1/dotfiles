@@ -27,7 +27,7 @@
   };
   boot.loader.systemd-boot.configurationLimit = 6;
 
-  networking.hostName = "nixos";
+  networking.hostName = "work";
   networking.networkmanager.enable = true;
   # Bootloader
   boot.loader.systemd-boot.enable = true;

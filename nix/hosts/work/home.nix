@@ -2,7 +2,6 @@
   config,
   inputs,
   pkgs,
-  node-pkgs,
   ...
 }:
 
@@ -122,6 +121,72 @@
   #   };
   # };
 
+  programs.hyprlock = {
+    enable = true;
+
+    settings = {
+      general = {
+        disable_loading_bar = true;
+        grace = 0;
+        hide_cursor = true;
+        no_fade_in = true;
+        no_fade_out = true;
+      };
+
+      background = [
+        {
+          monitor = "";
+          color = "rgba(0, 0, 0, 1.0)";
+        }
+      ];
+
+      label = [
+        # Heure
+        {
+          monitor = "";
+          text = ''cmd[update:1000] echo "$(date +'%H:%M')"'';
+          color = "rgba(255, 255, 255, 1.0)";
+          font_size = 500;
+          font_family = "Pixelon";
+          position = "0, 40";
+          halign = "center";
+          valign = "center";
+        }
+        # Date
+        {
+          monitor = "";
+          text = ''cmd[update:60000] echo "$(date +'%A %d %B')" | tr 'a-z' 'A-Z' '';
+          color = "rgba(255, 255, 255, 1.0)";
+          font_size = 42;
+          font_family = "Pixelon";
+          position = "0, -240";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+
+      input-field = [
+        {
+          monitor = "";
+          size = "300, 60";
+          outline_thickness = 3;
+          dots_size = 0.3;
+          dots_spacing = 0.3;
+          outer_color = "rgba(255, 255, 255, 1.0)";
+          inner_color = "rgba(0, 0, 0, 1.0)";
+          font_color = "rgba(255, 255, 255, 1.0)";
+          rounding = 0;
+          check_color = "rgba(255, 255, 255, 1.0)";
+          fail_color = "rgba(255, 255, 255, 1.0)";
+          placeholder_text = ''<span foreground="##ffffff">____</span>'';
+          position = "0, -400";
+          halign = "center";
+          valign = "center";
+          fade_on_empty = false;
+        }
+      ];
+    };
+  };
   xdg.configFile."dolphinrc".text = ''
     [General]
     Version=202

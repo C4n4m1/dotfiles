@@ -113,5 +113,6 @@ in
     hunspell
     scrcpy
     ddcutil
+    devenv
   ];
 }

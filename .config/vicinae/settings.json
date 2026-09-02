@@ -33,7 +33,7 @@
       "system_info": false
    },
    "launcher_window": {
-      "opacity": 0.9,
+      "opacity": 0.85,
       "client_side_decorations": {
          "enabled": true,
          "border_width": 2
@@ -179,7 +179,7 @@
          "preferences": {
             "colorGenTool": "none",
             "gridRows": "4",
-            "postCommand": "/home/credo/Pictures/wallpaper.sh ${wallpaper}",
+            "postCommand": "",
             "postProduction": "no",
             "showImageDetails": false,
             "toggleVicinaeSetting": false,
@@ -187,7 +187,7 @@
             "transitionFPS": "60",
             "transitionStep": "255",
             "transitionType": "center",
-            "wallpaperPath": "/home/credo/Pictures/wallpapers_png"
+            "wallpaperPath": "/home/credo/Pictures/wallpapers"
          }
       },
       "applications": {

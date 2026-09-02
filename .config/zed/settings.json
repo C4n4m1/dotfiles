@@ -1,8 +1,6 @@
 {
   "format_on_save": "off",
-  "buffer_line_height": {
-    "custom": 1.399999976158142
-  },
+  "buffer_line_height": "comfortable",
   "diff_view_style": "split",
   "cli_default_open_behavior": "new_window",
   "agent_servers": {
@@ -54,7 +52,7 @@
     "enabled": false
   },
   "rounded_selection": true,
-  "buffer_font_size": 15.4,
+  "buffer_font_size": 15.0,
   "agent_buffer_font_size": 14.0,
   "ui_font_size": 16.0,
   "languages": {

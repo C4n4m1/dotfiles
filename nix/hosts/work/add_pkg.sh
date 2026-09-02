@@ -3,7 +3,7 @@
 set -euo pipefail
 
 DOTFILES_DIR="$HOME/dotfiles/nix"
-PKG_FILE="$DOTFILES_DIR/hosts/default/packages.nix"
+PKG_FILE="$DOTFILES_DIR/hosts/work/packages.nix"
 
 cd "$DOTFILES_DIR"
 
