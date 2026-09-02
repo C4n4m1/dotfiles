@@ -1,7 +1,0 @@
-// Disable workspace shadows in the overview.
-overview {
-    workspace-shadow {
-        off
-    }
-    zoom 0.45
-}
