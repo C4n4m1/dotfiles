@@ -161,5 +161,6 @@ in
     hunspell
     scrcpy
     ddcutil
+    superfile
   ];
 }
