@@ -320,9 +320,18 @@ window-rule {
 // (This example rule is commented out with a "/-" in front.)
 
 window-rule {
-    match app-id=r#"^(dev.zed.Zed|zen|obsidian|md.Obsidian|anytype|Spotify Free|Spotify)$"#
+    match app-id=r#"^(zen|obsidian|md.Obsidian|anytype|Spotify Free|Spotify)$"#
     clip-to-geometry true
-    opacity 0.96 
+    opacity 0.96
+    open-maximized true
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id=r#"^(dev.zed.Zed)$"#
+    clip-to-geometry true
     open-maximized true
     background-effect {
         blur true
@@ -468,9 +477,10 @@ binds {
     Mod+Alt+B { spawn "vicinae" "vicinae://launch/@Gelei/store.vicinae.bluetooth/devices?toggle=true" ; }
     Mod+Alt+Z { spawn "vicinae" "vicinae://launch/@brpaz/brotab/tabs-list?toggle=true" ; }
     Mod+Space { spawn "vicinae" "vicinae://toggle"; }
+    Mod+Alt+T { spawn "vicinae" "vicinae://launch/core/search-tray"; }
     // Mod+Space { spawn "albert" "toggle"; }
     Mod+Shift+Space { spawn "vicinae" "vicinae://open?popToRoot=true"; }
-    Mod+Alt+T { spawn "vicinae" "vicinae://launch/@gebeto/translate/translate?toggle=true"; }
+    // Mod+Alt+T { spawn "vicinae" "vicinae://launch/@gebeto/translate/translate?toggle=true"; }
     Mod+D { spawn-sh "/home/credo/.config/niri/scripts/open-recent-download.sh";}
     Mod+Shift+D { spawn-sh "nautilus ~/Downloads/";}
     Mod+Alt+C { spawn-sh "/home/credo/.config/niri/scripts/L2.sh";}
@@ -826,7 +836,7 @@ layer-rule {
         blur true
         xray false
     }
-    
+
 }
 
 layer-rule {
@@ -837,7 +847,7 @@ layer-rule {
         blur true
         xray false
     }
-    
+
 }
 
 layer-rule {

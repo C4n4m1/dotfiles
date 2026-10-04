@@ -24,6 +24,7 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,6 +42,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helium-flake = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sonora = {
+      url = "github:sonorahq/sonora";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -50,6 +61,7 @@
       vicinae,
       home-manager,
       nixpkgs-stable,
+      helium-flake,
       ...
     }@inputs:
     # use "nixos", or your hostname as the name of the configuration
@@ -71,6 +83,9 @@
           specialArgs = { inherit inputs stable-pkgs; };
           modules = [
             ./hosts/default/configuration.nix
+
+            # vicinae.nixosModules.default
+
             inputs.home-manager.nixosModules.home-manager
             {
 
@@ -79,21 +94,6 @@
                 useUserPackages = true;
                 backupFileExtension = "backup";
                 # extraSpecialArgs = { inherit inputs node-pkgs; };
-              };
-            }
-          ];
-        };
-
-        work = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs stable-pkgs; };
-          modules = [
-            ./hosts/work/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "backup";
               };
             }
           ];

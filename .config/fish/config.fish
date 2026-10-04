@@ -31,7 +31,7 @@ abbr nirib "~/.local/bin/niri"
 abbr pkg "pacman -Qq | fzf"
 abbr sv sudoedit
 abbr emu 'emulator -avd Flutter_dev -gpu host -no-snapshot &'
-abbr ytdl 'yt-dlp -x --audio-format mp3 --output "%(title)s - %(channel)s.%(ext)s"'
+abbr ytdl 'yt-dlp -x --no-playlist --audio-format mp3 --output "%(title)s - %(channel)s.%(ext)s"'
 abbr nrs 'sudo nixos-rebuild switch --flake /home/credo/dotfiles/nix/'
 
 # alias

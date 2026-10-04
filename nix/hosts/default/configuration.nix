@@ -19,6 +19,7 @@
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true; # if not already implied by enableAllFirmware
 
+  nixpkgs.overlays = [ inputs.helium-flake.overlays.default ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
   programs.nix-ld = {
@@ -251,6 +252,12 @@
     trustedInterfaces = [ "tailscale0" ];
     checkReversePath = "loose"; # nécessaire pour éviter des soucis de routing sur l'interface tailscale
   };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   services.openssh = {
     enable = true;
     settings = {

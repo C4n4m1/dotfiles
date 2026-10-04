@@ -57,7 +57,7 @@ Singleton {
     property color blueDesaturated: Qt.darker(blue, 1.9)
 
     // Font
-    property var fontFamily: "Inter Semibold"
+    property var fontFamily: "Geist Semibold"
     property var iconFontFamily: "SF Pro Text"
     property var monospaceFont: "Geist Mono"
 

@@ -9,6 +9,11 @@
   home.username = "credo";
   home.homeDirectory = "/home/credo";
 
+  imports = [ inputs.sonora.homeManagerModules.default ];
+  programs.sonora = {
+    enable = true;
+  };
+
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
@@ -81,6 +86,8 @@
   gtk = {
     enable = true;
     colorScheme = "dark";
+    font.name = "Geist";
+    font.size = 10;
     iconTheme = {
       name = "Colloid-Dark";
       package = pkgs.colloid-icon-theme;
@@ -99,8 +106,8 @@
         style = "adwaita-dark";
       };
       Fonts = {
-        fixed = "\"Inter ,12\"";
-        general = "\"Inter ,12\"";
+        fixed = "\"Geist ,12\"";
+        general = "\"Geist ,12\"";
       };
     };
   };

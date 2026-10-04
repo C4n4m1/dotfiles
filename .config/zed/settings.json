@@ -1,4 +1,17 @@
 {
+  "proxy": "",
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": false,
+      "location": "status_bar",
+      "enabled": true
+    }
+  },
+  "reduce_motion": "off",
+  "cursor_shape": "bar",
+  "cursor_animation": {
+    "enabled": true
+  },
   "format_on_save": "off",
   "buffer_line_height": "comfortable",
   "diff_view_style": "split",
@@ -39,6 +52,7 @@
     "button": false
   },
   "status_bar": {
+    "show_active_file": false,
     "cursor_position_button": false,
     "active_language_button": true
   },
@@ -72,7 +86,11 @@
   "current_line_highlight": "all",
   "show_edit_predictions": true,
   "project_panel": {
-    "button": true,
+    "sticky_scroll": false,
+    "starts_open": false,
+    "folder_indicator": "chevron",
+    "file_icons": true,
+    "button": false,
     "indent_guides": {
       "show": "never"
     },
@@ -134,12 +152,12 @@
   "theme": {
     "mode": "dark",
     "light": "Quiet Light",
-    "dark": "Mellow"
+    "dark": "Mellow Vaporeux"
   },
   "buffer_font_family": "Geist Mono",
-  "buffer_font_weight": 400,
+  "buffer_font_weight": 400.0,
   "ui_font_weight": 400,
-  "unnecessary_code_fade": 0.7,
+  "unnecessary_code_fade": 0.8,
   "active_pane_modifiers": {
     "border_size": 0.0,
     "inactive_opacity": 0.6
@@ -164,6 +182,7 @@
     "selections_menu": false
   },
   "title_bar": {
+    "button_layout": "platform_default",
     "show_branch_status_icon": true,
     "show_menus": false,
     "show_sign_in": true,
@@ -178,6 +197,9 @@
   },
   "middle_click_paste": false,
   "outline_panel": {
+    "indent_guides": {
+      "show": "never"
+    },
     "dock": "right",
     "button": false
   },
@@ -225,7 +247,7 @@
     "font_family": "Geist Mono",
     "minimum_contrast": 0,
     "font_size": 15.0,
-    "font_weight": 300,
+    "font_weight": 300.0,
     "shell": "system",
     "working_directory": "current_project_directory",
     "blinking": "terminal_controlled",
@@ -249,6 +271,8 @@
     "keep_selection_on_copy": false
   },
   "git_panel": {
+    "entry_primary_click_action": "file_diff",
+    "file_icons": true,
     "tree_view": false,
     "button": true,
     "dock": "left"

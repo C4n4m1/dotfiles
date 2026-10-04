@@ -17,11 +17,14 @@
    "pop_to_root_on_close": false,
    "keybinding": "default",
    "search_files_in_root": false,
+   "tray": {
+      "enabled": false
+   },
    "font": {
       "rendering": "native",
       "normal": {
-         "family": "Inter Medium",
-         "size": 10.5
+         "family": "Geist",
+         "size": 11
       }
    },
    "theme": {
@@ -38,6 +41,7 @@
          "enabled": true,
          "border_width": 2
       },
+      "floating_status_bar": true,
       "material": "blur"
    },
    "keybinds": {

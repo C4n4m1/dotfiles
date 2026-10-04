@@ -161,6 +161,10 @@ in
     hunspell
     scrcpy
     ddcutil
-    superfile
+    anytype
+    proton-vpn
+    helium
+    nnn
+    penpot-desktop
   ];
 }
