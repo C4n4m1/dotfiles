@@ -2,39 +2,16 @@
 .config/niri/overview.kdl
 .config/quickshell/services/scripts/token.json
 
-# Obsidian (Electron) runtime cache — not config
-.config/obsidian/Cache/
-.config/obsidian/Code Cache/
-.config/obsidian/GPUCache/
-.config/obsidian/DawnGraphiteCache/
-.config/obsidian/DawnWebGPUCache/
-.config/obsidian/blob_storage/
-.config/obsidian/IndexedDB/
-.config/obsidian/Local Storage/
-.config/obsidian/Session Storage/
-.config/obsidian/Service Worker/
-.config/obsidian/WebStorage/
-.config/obsidian/Network Persistent State
-.config/obsidian/TransportSecurity
-.config/obsidian/Cookies
-.config/obsidian/Cookies-journal
-.config/obsidian/DIPS
-.config/obsidian/DIPS-wal
-.config/obsidian/SharedStorage
-.config/obsidian/SharedStorage-wal
-.config/obsidian/SingletonCookie
-.config/obsidian/SingletonLock
-.config/obsidian/SingletonSocket
-.config/obsidian/obsidian.log
+# Obsidian (Electron) app state, not config
+.config/obsidian/
 
-# LibreOffice: ignore everything except the settings worth keeping
-# allowlist
-libreoffice/*
-!libreoffice/4/
-libreoffice/4/*
-!libreoffice/4/user/
-libreoffice/4/user/*
-!libreoffice/4/user/registrymodifications.xcu
+# Downloaded tree-sitter grammars, regenerated
+.config/zed/grammars/
 
-obsidian/        # vault/app state, often large and machine-specific
-zed/grammars/    # downloaded tree-sitter grammars, regenerated
+# LibreOffice: ignore everything except registrymodifications.xcu
+.config/libreoffice/*
+!.config/libreoffice/4/
+.config/libreoffice/4/*
+!.config/libreoffice/4/user/
+.config/libreoffice/4/user/*
+!.config/libreoffice/4/user/registrymodifications.xcu
