@@ -166,5 +166,6 @@ in
     helium
     nnn
     penpot-desktop
+    inputs.amane.packages.x86_64-linux.default
   ];
 }

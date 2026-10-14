@@ -52,6 +52,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    amane = {
+      url = "github:MystiaFin/amane";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -62,6 +66,7 @@
       home-manager,
       nixpkgs-stable,
       helium-flake,
+      amane,
       ...
     }@inputs:
     # use "nixos", or your hostname as the name of the configuration
