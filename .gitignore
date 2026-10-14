@@ -26,3 +26,15 @@
 .config/obsidian/SingletonLock
 .config/obsidian/SingletonSocket
 .config/obsidian/obsidian.log
+
+# LibreOffice: ignore everything except the settings worth keeping
+# allowlist
+libreoffice/*
+!libreoffice/4/
+libreoffice/4/*
+!libreoffice/4/user/
+libreoffice/4/user/*
+!libreoffice/4/user/registrymodifications.xcu
+
+obsidian/        # vault/app state, often large and machine-specific
+zed/grammars/    # downloaded tree-sitter grammars, regenerated
