@@ -27,9 +27,9 @@
         ]
       },
       "default_config_options": {
-        "effort": "max",
+        "effort": "high",
         "mode": "build",
-        "model": "opencode/nemotron-3-ultra-free"
+        "model": "opencode/deepseek-v4.1-flash-free"
       },
       "type": "registry"
     }

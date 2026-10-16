@@ -185,7 +185,7 @@
             "gridRows": "4",
             "postCommand": "",
             "postProduction": "no",
-            "showImageDetails": false,
+            "showImageDetails": true,
             "toggleVicinaeSetting": false,
             "transitionDuration": "1",
             "transitionFPS": "60",
