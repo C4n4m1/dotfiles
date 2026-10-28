@@ -4,6 +4,7 @@
   pkgs,
   inputs,
   stable-pkgs,
+
   ...
 }:
 
@@ -12,6 +13,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./packages.nix
+    ./custom-pkgs/mssql-server.nix
     inputs.spicetify-nix.nixosModules.default
     inputs.monique.nixosModules.default
   ];
@@ -19,7 +21,14 @@
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true; # if not already implied by enableAllFirmware
 
-  nixpkgs.overlays = [ inputs.helium-flake.overlays.default ];
+  nixpkgs.overlays = [
+    inputs.helium-flake.overlays.default
+    inputs.dbflux.overlays.default
+    # Repackaged Microsoft SQL Server RPM (unfree).
+    (final: prev: {
+      mssql-server = final.callPackage ./custom-pkgs/mssql-package.nix { };
+    })
+  ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
   programs.nix-ld = {
@@ -29,7 +38,8 @@
       xorg.libxcb
     ];
   };
-  boot.loader.systemd-boot.configurationLimit = 6;
+
+  boot.loader.systemd-boot.configurationLimit = 8;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -110,8 +120,13 @@
       # android
       "adbusers"
       "kvm"
+      "libvirtd"
     ];
   };
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.qemu.runAsRoot = true;
 
   fonts.packages = with pkgs; [
     inter
@@ -140,7 +155,6 @@
   # };
 
   # SERVICES
-
 
   # DB for key-value gnome and gtk config
   programs.dconf.enable = true;
@@ -233,6 +247,18 @@
       # secret_key = "Your secret key.";
     };
 
+  };
+
+  # Microsoft SQL Server (repackaged upstream RPM).
+  # Create the SA password file once, before the first start:
+  #   sudo install -m 600 /dev/null /var/lib/mssql-sa-password
+  #   sudo sh -c 'printf %s "YourStrong!Passw0rd" > /var/lib/mssql-sa-password'
+  services.mssql-server = {
+    enable = false;
+    acceptEula = true;
+    edition = "Developer"; # free, but not licensed for production use
+    saPasswordFile = "/var/lib/mssql-sa-password";
+    openFirewall = false; # set to true to expose TCP 1433
   };
 
   # Open ports in the firewall.

@@ -80,20 +80,40 @@
     exec = "/home/credo/AppImages/paper-desktop-0.5.16x86_64.AppImage --no-sandbox %U";
     terminal = false;
     categories = [ "Utility" ];
-    mimeType = [ "x-scheme-handler/paper" "x-scheme-handler/paper-dev" ];
+    mimeType = [
+      "x-scheme-handler/paper"
+      "x-scheme-handler/paper-dev"
+    ];
   };
 
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "x-scheme-handler/http"  = "helium.desktop";
-      "x-scheme-handler/https" = "helium.desktop";
-      "x-scheme-handler/about" = "helium.desktop";
-      "x-scheme-handler/unknown" = "helium.desktop";
-      "text/html"              = "helium.desktop";
-      "application/xhtml+xml"  = "helium.desktop";
+      "x-scheme-handler/http" = "zen.desktop";
+      "x-scheme-handler/https" = "zen.desktop";
+      "x-scheme-handler/about" = "zen.desktop";
+      "x-scheme-handler/unknown" = "zen.desktop";
+      "text/html" = "zen.desktop";
+      "application/xhtml+xml" = "zen.desktop";
       "x-scheme-handler/paper" = "paper-desktop.desktop";
       "x-scheme-handler/paper-dev" = "paper-desktop.desktop";
+
+      # PDF
+      "application/pdf" = "org.gnome.Papers.desktop";
+
+      # Pictures
+      "image/png" = "org.kde.gwenview.desktop";
+      "image/jpeg" = "org.kde.gwenview.desktop";
+      "image/gif" = "org.kde.gwenview.desktop";
+      "image/webp" = "org.kde.gwenview.desktop";
+      "image/avif" = "org.kde.gwenview.desktop";
+      "image/heif" = "org.kde.gwenview.desktop";
+      "image/heic" = "org.kde.gwenview.desktop";
+      "image/bmp" = "org.kde.gwenview.desktop";
+      "image/tiff" = "org.kde.gwenview.desktop";
+      "image/svg+xml" = "org.kde.gwenview.desktop";
+      "image/x-icon" = "org.kde.gwenview.desktop";
+      "image/vnd.microsoft.icon" = "org.kde.gwenview.desktop";
     };
   };
 

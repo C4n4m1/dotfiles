@@ -22,7 +22,7 @@ abbr shutdown "systemctl poweroff"
 abbr logout "systemctl restart sddm"
 abbr v nvim
 abbr sv sudoedit
-abbr hx helix
+# abbr hx helix
 abbr lf "ls | fzf"
 abbr lt "exa -T"
 abbr nv "nvim ."

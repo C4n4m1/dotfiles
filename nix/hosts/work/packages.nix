@@ -7,6 +7,7 @@
 
 let
   hayase = pkgs.callPackage ./custom-pkgs/hayase.nix { };
+  tusk = pkgs.callPackage ./custom-pkgs/tusk.nix { };
 in
 {
   environment.sessionVariables = {
@@ -81,6 +82,7 @@ in
     spotify
     kdePackages.gwenview
     hayase
+    tusk
 
     qdirstat
 

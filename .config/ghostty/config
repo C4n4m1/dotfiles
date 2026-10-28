@@ -1,7 +1,7 @@
 # Additionally, each config option is also explained in detail
 # on Ghostty's website, at https://ghostty.org/docs/config.
 
-adjust-cursor-thickness = 1
+# adjust-cursor-thickness = 1
 # alpha-blending = linear
 font-family = Geist Mono
 font-style = Medium
@@ -105,6 +105,7 @@ keybind = ctrl+backspace=text:\x17
 # SHADERS
 
 custom-shader = shaders/cursor_warp.glsl
+custom-shader = shaders/cursor_glide.glsl
 # custom-shader = shaders/crt.glsl
 custom-shader-animation = always
 # custom-shader = /home/credo/.config/ghostty/shaders/cursor_warp.glsl

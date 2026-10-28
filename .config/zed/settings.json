@@ -27,8 +27,8 @@
         ]
       },
       "default_config_options": {
-        "effort": "high",
-        "mode": "build",
+        "effort": "max",
+        "mode": "plan",
         "model": "opencode/deepseek-v4.1-flash-free"
       },
       "type": "registry"
@@ -155,7 +155,7 @@
     "dark": "Mellow Vaporeux"
   },
   "buffer_font_family": "Geist Mono",
-  "buffer_font_weight": 400.0,
+  "buffer_font_weight": 450.0,
   "ui_font_weight": 400,
   "unnecessary_code_fade": 0.8,
   "active_pane_modifiers": {

@@ -6,11 +6,11 @@
 }:
 
 let
-  androidComposition = pkgs.androidenv.composeAndroidPackages {
-    # cmdLineToolsVersion = "13.0";
-    # platformToolsVersion = "35.0.2";
-    # buildToolsVersions = [ "35.0.0" ];
-    # platformVersions = [ "35" ];
+  androidComposition = stable-pkgs.androidenv.composeAndroidPackages {
+    cmdLineToolsVersion = "13.0";
+    platformToolsVersion = "36.0.2";
+    buildToolsVersions = [ "36.0.0" ];
+    platformVersions = [ "36" ];
     abiVersions = [ "x86_64" ]; # match your host CPU for KVM accel
     systemImageTypes = [ "google_apis_playstore" ];
     includeSystemImages = true;
@@ -20,6 +20,7 @@ let
   };
   androidSdk = androidComposition.androidsdk;
   hayase = pkgs.callPackage ./custom-pkgs/hayase.nix { };
+  tusk = pkgs.callPackage ./custom-pkgs/tusk.nix { };
 in
 {
   environment.sessionVariables = {
@@ -30,6 +31,8 @@ in
     ANDROID_AVD_HOME = "$HOME/.android/avd";
     DICPATH = "/run/current-system/sw/share/hunspell";
     QT_QPA_PLAFORM = "wayland";
+    SQLITE_CLIB_PATH = "${stable-pkgs.sqlite.out}/lib/libsqlite3.so";
+    RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
   };
 
   environment.systemPackages = with pkgs; [
@@ -64,6 +67,7 @@ in
     stow
     nh
     libnotify
+    ripgrep
 
     (inputs.quickshell.packages.${pkgs.system}.default.withModules [
       pkgs.qt6.qt5compat
@@ -71,8 +75,11 @@ in
     ])
 
     # PROGRAMING
-    rustup
+    cargo
     rustc
+    rustfmt
+    clippy
+    rust-analyzer
     zig
     zed-editor # unstable
     nodejs # unstable
@@ -99,7 +106,7 @@ in
     # APPS
     pavucontrol
     vicinae
-    obsidian
+    stable-pkgs.obsidian
     cine
     blueman
     vesktop
@@ -169,5 +176,13 @@ in
     inputs.amane.packages.x86_64-linux.default
     devenv
     songrec
+    helix
+    python3
+    maven
+    gradle
+    intellij-idea
+    pkgs.dbflux # prebuilt binary, no compile
+    tusk
+    dbeaver-bin
   ];
 }

@@ -160,6 +160,7 @@
          }
       },
       "@sovereign/awww-switcher": {
+         "enabled": false,
          "preferences": {
             "wallpaperPath": "/home/credo/Pictures/wallpapers_png",
             "colorGenTool": "none",
@@ -185,7 +186,7 @@
             "gridRows": "4",
             "postCommand": "",
             "postProduction": "no",
-            "showImageDetails": true,
+            "showImageDetails": false,
             "toggleVicinaeSetting": false,
             "transitionDuration": "1",
             "transitionFPS": "60",
