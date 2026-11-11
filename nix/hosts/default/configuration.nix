@@ -23,11 +23,14 @@
 
   nixpkgs.overlays = [
     inputs.helium-flake.overlays.default
-    inputs.dbflux.overlays.default
     # Repackaged Microsoft SQL Server RPM (unfree).
     (final: prev: {
       mssql-server = final.callPackage ./custom-pkgs/mssql-package.nix { };
     })
+
+    # (final: prev: {
+    #   electron_42 = pkgs.electron_43;
+    # })
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableAllFirmware = true;
@@ -36,6 +39,7 @@
     libraries = with pkgs; [
       libxcb-cursor
       xorg.libxcb
+      mpv-unwrapped
     ];
   };
 
@@ -105,7 +109,7 @@
     allowUnfree = true;
 
     permittedInsecurePackages = [
-      "electron-40.10.5"
+      "electron-42.11.18"
     ];
   };
 
@@ -250,16 +254,16 @@
   };
 
   # Microsoft SQL Server (repackaged upstream RPM).
-  # Create the SA password file once, before the first start:
-  #   sudo install -m 600 /dev/null /var/lib/mssql-sa-password
-  #   sudo sh -c 'printf %s "YourStrong!Passw0rd" > /var/lib/mssql-sa-password'
   services.mssql-server = {
-    enable = false;
+    enable = true;
     acceptEula = true;
     edition = "Developer"; # free, but not licensed for production use
     saPasswordFile = "/var/lib/mssql-sa-password";
     openFirewall = false; # set to true to expose TCP 1433
   };
+
+  # to disable the auto start of a service after a rebuild
+  systemd.services.mssql-server.wantedBy = lib.mkForce [ ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -295,24 +299,7 @@
   users.users.credo.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBxUvER9WbiDVlLIpgZdLlF17vBI1laOobL2PkPjZ9X credo@work-to-home"
   ];
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
   #

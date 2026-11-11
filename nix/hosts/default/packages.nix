@@ -6,29 +6,31 @@
 }:
 
 let
-  androidComposition = stable-pkgs.androidenv.composeAndroidPackages {
-    cmdLineToolsVersion = "13.0";
-    platformToolsVersion = "36.0.2";
-    buildToolsVersions = [ "36.0.0" ];
-    platformVersions = [ "36" ];
-    abiVersions = [ "x86_64" ]; # match your host CPU for KVM accel
-    systemImageTypes = [ "google_apis_playstore" ];
-    includeSystemImages = true;
-    includeEmulator = true;
-    includeNDK = false; # set true if you need native builds
-    useGoogleAPIs = true;
-  };
-  androidSdk = androidComposition.androidsdk;
+  # androidComposition = pkgs.androidenv.composeAndroidPackages {
+  #   # cmdLineToolsVersion = "13.0";
+  #   # platformToolsVersion = "36.0.2";
+  #   # buildToolsVersions = [ "36.0.0" ];
+  #   # 37.1 only ships a "google_apis_playstore_ps16k" image, so pin 37.0 to get
+  #   # the regular google_apis_playstore image that avdmanager expects.
+  #   platformVersions = [ "37.0" ];
+  #   abiVersions = [ "x86_64" ]; # match your host CPU for KVM accel
+  #   systemImageTypes = [ "google_apis_playstore" ];
+  #   includeSystemImages = true;
+  #   includeEmulator = true;
+  #   includeNDK = false; # set true if you need native builds
+  #   useGoogleAPIs = true;
+  # };
+  # androidSdk = androidComposition.androidsdk;
   hayase = pkgs.callPackage ./custom-pkgs/hayase.nix { };
   tusk = pkgs.callPackage ./custom-pkgs/tusk.nix { };
 in
 {
   environment.sessionVariables = {
-    ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
-    ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
+    # ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
+    # ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
+    # ANDROID_AVD_HOME = "$HOME/.android/avd";
     LD_LIBRARY_PATH = [ "${pkgs.libxcb-cursor}/lib" ];
-    JAVA_HOME = "${pkgs.jdk17.home}";
-    ANDROID_AVD_HOME = "$HOME/.android/avd";
+    # JAVA_HOME = "${pkgs.jdk17.home}";
     DICPATH = "/run/current-system/sw/share/hunspell";
     QT_QPA_PLAFORM = "wayland";
     SQLITE_CLIB_PATH = "${stable-pkgs.sqlite.out}/lib/libsqlite3.so";
@@ -37,10 +39,9 @@ in
 
   environment.systemPackages = with pkgs; [
     # ANDROID DEV
-    androidSdk
-    pkgs.jdk17
+    # androidSdk
+    # pkgs.jdk17
     xwayland-satellite
-    pkgs.android-tools
 
     # UTILITY / SYSTEM
     vim
@@ -85,7 +86,6 @@ in
     nodejs # unstable
     gcc
     clang
-    mariadb
     sqlite
     sqlitebrowser
     php
@@ -106,7 +106,7 @@ in
     # APPS
     pavucontrol
     vicinae
-    stable-pkgs.obsidian
+    obsidian
     cine
     blueman
     vesktop
@@ -115,7 +115,6 @@ in
     papers
     qbittorrent
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    kopuz # unstable
     gnome-calculator
     gnome-clocks
     upscaler
@@ -148,7 +147,6 @@ in
     hyprlock
     pandoc
     hyprpicker
-    code-cursor
     love
     unzip
     dig
@@ -168,21 +166,18 @@ in
     hunspell
     scrcpy
     ddcutil
-    anytype
+    # anytype
     proton-vpn
     helium
     nnn
     penpot-desktop
     inputs.amane.packages.x86_64-linux.default
     devenv
-    songrec
     helix
     python3
-    maven
-    gradle
-    intellij-idea
-    pkgs.dbflux # prebuilt binary, no compile
+    jetbrains.idea
     tusk
     dbeaver-bin
+    qgis
   ];
 }

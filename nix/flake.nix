@@ -57,10 +57,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dbflux = {
-      url = "github:0xErwin1/dbflux";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -72,7 +68,6 @@
       nixpkgs-stable,
       helium-flake,
       amane,
-      dbflux,
       ...
     }@inputs:
     # use "nixos", or your hostname as the name of the configuration
